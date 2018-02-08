@@ -17,7 +17,7 @@ function mouseClicked() {
     rect(mouseX,mouseY,random(50, 150),random(50, 150));
   }
   else if (mouseButton === RIGHT) {
-    ellipse(mouseX, mouseY, random(50, 150), random(50, 150));
+    ellipse(mouseX,mouseY,w,[h])
   }
 }
 
