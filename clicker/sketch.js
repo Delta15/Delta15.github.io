@@ -27,5 +27,7 @@ function keyPressed(){
 }
 
 function deviceShaken(){
-  rect(,y,w,h,[tl],[tr],[br],[bl])
+  noStroke();
+  fill(random(255),random(255),random(255),random(255));
+  rect(random(50,100),random(50, 100),random(50, 100),random(50, 100));
 }
