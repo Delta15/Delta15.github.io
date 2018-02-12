@@ -20,8 +20,8 @@ function mouseClicked(){
   }
 }
 
-function keyPressed(){
-  if (key === "e" || key === "E"){
+function keyTyped(){
+  if (key === "e" || key === "E"{
     background(255);
   }
 }
