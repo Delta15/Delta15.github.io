@@ -1,7 +1,7 @@
 let lightSwith;
 
 function setup() {
-  createCanvas(windowWidth,windowHeight,);
+  createCanvas(windowWidth,windowHeight);
   lightSwith = TRUE;
 }
 
@@ -24,5 +24,5 @@ function drawLight() {
     fill(0)
   }
   rectMode(CENTER);
-  rect(width/2, height/2);
+  rect(width/2, height/2, 200, 200);
 }
