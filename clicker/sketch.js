@@ -1,10 +1,13 @@
+let fr = 20;
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   document.addEventListener("contextmenu", event => event.preventDefault());
 }
 
 function draw() {
-
+  frameRate(fr)
+  background(random(255))
 }
 
 function mouseClicked(){
@@ -21,7 +24,7 @@ function mouseClicked(){
 }
 
 function keyTyped(){
-  if (key === "e" || key === "E"{
+  if (key === "e" || key === "E"){
     background(255);
   }
 }
