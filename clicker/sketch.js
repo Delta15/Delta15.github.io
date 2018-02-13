@@ -1,4 +1,4 @@
-let fr = 20;
+let fr = 5;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -6,8 +6,12 @@ function setup() {
 }
 
 function draw() {
-  frameRate(fr)
-  background(random(255))
+  frameRate(fr);
+  background(random(255), random(255), random(255), random(255));
+  fill(random(255), random(255), random(255), random(255));
+  noStroke();
+  rectMode(CENTER);
+  rect(width/2,height/2,500,500);
 }
 
 function mouseClicked(){
