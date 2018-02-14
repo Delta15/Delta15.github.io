@@ -1,17 +1,20 @@
-let fr = 5;
+let fr = 60;
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(windowWidth, windowHeight, WEBGL);
   document.addEventListener("contextmenu", event => event.preventDefault());
 }
 
 function draw() {
   frameRate(fr);
-  background(random(255), random(255), random(255), random(255));
-  fill(random(255), random(255), random(255), random(255));
+  background(0)
+  // background(random(255), random(255), random(255), random(255));
   noStroke();
-  rectMode(CENTER);
-  rect(width/2,height/2,500,500);
+  // fill(random(255), random(255), random(255), random(255));
+  fill(255,105,180);
+  rotateY(millis() / 900);
+  rotateX(millis() / 900);
+  box(300, 300);
 }
 
 function mouseClicked(){
