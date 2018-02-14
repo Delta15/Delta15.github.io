@@ -1,4 +1,5 @@
 let fr = 60;
+let time = 0;
 
 function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
