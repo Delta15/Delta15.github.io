@@ -1,5 +1,10 @@
+//Clicker
+//McRaven Tuazon
+//2/15/2018
+
 let fr = 60;
 let time = 0;
+let endBox = TRUE;
 
 function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
@@ -7,20 +12,25 @@ function setup() {
 }
 
 function draw() {
-  frameRate(fr);
-  background(0)
+  background(255,105,180)
   // background(random(255), random(255), random(255), random(255));
-  noStroke();
   // fill(random(255), random(255), random(255), random(255));
-  fill(255,105,180);
-  rotateY(millis() / 900);
-  rotateX(millis() / 900);
+  noFill();
+  stroke(0);
+  rotateY(millis() / 800);
+  //rotateX(millis() / 900);
   box(300, 300);
+  rotateX(millis() / 800);
+  box(200, 200);
+  rotateZ(millis() / 800);
+  box(100, 100);
+  fill(255);
+  noStroke();
+  sphere(40);
 }
 
 function mouseClicked(){
   if (mouseButton == LEFT){
-    noStroke();
     fill(random(255), random(255), random(255), random(255));
     ellipse(mouseX, mouseY, random(50, 200), random(50, 200));
   }
