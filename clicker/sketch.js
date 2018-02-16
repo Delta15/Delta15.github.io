@@ -17,9 +17,9 @@ function setup() {
 
 function draw() {
   background(255,105,180);
+  boxStart3();
   boxStart();
   boxStart2();
-  boxStart3();
 }
 
 function boxStart(){
