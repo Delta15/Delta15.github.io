@@ -12,7 +12,6 @@ function setup() {
   drawBox2 = true;
   drawBox3 = true;
   drawBox4 = true;
-  document.addEventListener("contextmenu", event => event.preventDefault());
 }
 
 function draw() {
@@ -35,7 +34,7 @@ function boxStart2(){
   if (drawBox2 === true){
     noFill();
     stroke(0);
-    rotateX(millis() / 800)
+    rotateX(millis() / 800);
     box(200, 200);
   }
 }
@@ -44,13 +43,13 @@ function boxStart3(){
   if (drawBox3 === true){
     noFill();
     stroke(0);
-    rotateZ(millis() / 800)
+    rotateZ(millis() / 800);
     box(100, 100);
   }
 }
 
 function mouseClicked(){
-  if (mouseButton == LEFT){
+  if (mouseButton === LEFT){
     drawBox = false();
   }
 }
