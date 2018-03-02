@@ -11,7 +11,7 @@ function setup() {
   drawBox = true;
   drawBox2 = true;
   drawBox3 = true;
-  drawBox4 = true;
+  
 }
 
 function draw() {
@@ -41,8 +41,8 @@ function boxStart2(){
 
 function boxStart3(){
   if (drawBox3 === true){
-    noFill();
-    stroke(0);
+    fill(255);
+    noStroke();
     rotateZ(millis() / 800);
     box(100, 100);
   }
