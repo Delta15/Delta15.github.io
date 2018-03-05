@@ -8,18 +8,21 @@ function setup() {
 }
 
 function draw() {
-  background(255);
-  drawboard();
+  background(0);
+  displayDots();
   // fill(black);
   // fill(white);
   // rect(100,100,50,50);
 }
 
-function drawboard() {
-  for(let i=0; i<8; i++){
-    for(let j=0; j<8; j++){
-      stroke(255,0,0);
-      point(10,10);
+function displayDots(){
+  let pointSpacing = 30;
+  for (let x=pointSpacing; x < width; x+= pointSpacing) {
+    for (let y=pointSpacing; y< height; y+= pointSpacing){
+      fill(205, 7, 255);
+      ellipse(x,y,4,4);
+      stroke(255, 60);
+      line(x,y,60,60);
     }
   }
 }
