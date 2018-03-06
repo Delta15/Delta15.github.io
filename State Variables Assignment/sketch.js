@@ -15,4 +15,9 @@ function gameScreen(){
   noStroke();
   rectMode(CENTER);
   rect(width/2,height/2,windowWidth,200);
+  fill(255);
+  textFont("Impact");
+  textAlign(CENTER);
+  textSize(100);
+  text("Sample text",width/2,height/2);
 }
