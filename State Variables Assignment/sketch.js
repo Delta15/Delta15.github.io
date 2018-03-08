@@ -1,8 +1,8 @@
-let gameOpening;
+let swither;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  gameOpening = true;
+  swither = true;
 }
 
 function draw() {
@@ -10,6 +10,12 @@ function draw() {
 }
 
 function gameScreen(){
+  if (swither===true){
+    gameOpening();
+  }
+}
+
+function gameOpening(){
   background(255);
   fill(0);
   noStroke();
@@ -17,12 +23,25 @@ function gameScreen(){
   rect(width/2,height/2,windowWidth,200);
   fill(255);
   textFont("Impact");
-  textAlign(CENTER);
+  textAlign(CENTER, CENTER);
   textSize(100);
   text("WELCOME",width/2,height/2);
   textAlign(BOTTOM);
   textSize(30);
-  text("Press any key to start",width/2,height/2);
+  text("Press any key to start",width/2, height/2);
+  if (keyIsPressed){
+    nextScreen();
+  }
+}
+
+function nextScreen(){
+  if (key === " "){
+    gameStart();
+  }
+}
+
+function gameStart(){
+  background(0);
 }
 
 function deviceMoved(){
@@ -34,5 +53,5 @@ function deviceTurned(){
 }
 
 function deviceShaken(){
-
+  background(random(255));
 }
