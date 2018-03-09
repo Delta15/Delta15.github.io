@@ -2,7 +2,7 @@ let swither;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  swither = true;
+  swither = 2;
 }
 
 function draw() {
@@ -10,8 +10,11 @@ function draw() {
 }
 
 function gameScreen(){
-  if (swither===true){
+  if (swither===1){
     gameOpening();
+  }
+  else if (swither === 2) {
+    gameStart();
   }
 }
 
@@ -29,29 +32,8 @@ function gameOpening(){
   textAlign(BOTTOM);
   textSize(30);
   text("Press any key to start",width/2, height/2);
-  if (keyIsPressed){
-    nextScreen();
-  }
-}
-
-function nextScreen(){
-  if (key === " "){
-    gameStart();
-  }
 }
 
 function gameStart(){
   background(0);
-}
-
-function deviceMoved(){
-
-}
-
-function deviceTurned(){
-
-}
-
-function deviceShaken(){
-  background(random(255));
 }
