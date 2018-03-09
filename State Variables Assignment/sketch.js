@@ -2,7 +2,7 @@ let swither;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  swither = 2;
+  swither = 1;
 }
 
 function draw() {
