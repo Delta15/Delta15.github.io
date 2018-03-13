@@ -18,8 +18,15 @@ function gameScreen(){
   }
 }
 
+function keyPressed(){
+  if (keyCode === ENTER){
+    swither = 2;
+  }
+}
+
 function gameOpening(){
   background(255);
+  push();
   fill(0);
   noStroke();
   rectMode(CENTER);
@@ -28,12 +35,14 @@ function gameOpening(){
   textFont("Impact");
   textAlign(CENTER, CENTER);
   textSize(100);
-  text("WELCOME",width/2,height/2);
-  textAlign(BOTTOM);
+  text("DROP",width/2,height/2);
+
+  pop();
+  textAlign(CENTER,BOTTOM);
   textSize(30);
-  text("Press any key to start",width/2, height/2);
+  text("Press ENTER key to start",width/2, height/2);
 }
 
 function gameStart(){
-  background(0);
+  background(255);
 }
