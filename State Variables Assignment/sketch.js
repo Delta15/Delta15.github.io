@@ -38,9 +38,12 @@ function gameOpening(){
   text("DROP",width/2,height/2);
 
   pop();
-  textAlign(CENTER,BOTTOM);
+  fill(255);
+  textFont("Impact");
+  noStroke();
+  textAlign(CENTER);
   textSize(30);
-  text("Press ENTER key to start",width/2, height/2);
+  text("Press ENTER to start",width/2, 410);
 }
 
 function gameStart(){
