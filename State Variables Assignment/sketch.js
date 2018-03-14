@@ -26,7 +26,6 @@ function keyPressed(){
 
 function gameOpening(){
   background(255);
-  push();
   fill(0);
   noStroke();
   rectMode(CENTER);
@@ -36,16 +35,17 @@ function gameOpening(){
   textAlign(CENTER, CENTER);
   textSize(100);
   text("DROP",width/2,height/2);
-
-  pop();
-  fill(255);
-  textFont("Impact");
-  noStroke();
-  textAlign(CENTER);
   textSize(30);
-  text("Press ENTER to start",width/2, 410);
+  text("Press ENTER to start",width/2, height/2+75);
 }
 
 function gameStart(){
   background(255);
+  spaceShip();
+}
+
+function spaceShip(){
+  noStroke();
+  fill(50,205,50);
+  triangle(30, 75, 58, 20, 86, 75);
 }
