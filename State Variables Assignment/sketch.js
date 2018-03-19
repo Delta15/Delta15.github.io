@@ -1,8 +1,12 @@
 let swither;
+let x;
+let y;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   swither = 1;
+  x = width/2;
+  y = height/2;
 }
 
 function draw() {
@@ -41,11 +45,29 @@ function gameOpening(){
 
 function gameStart(){
   background(255);
-  spaceShip();
+  if (keyIsPressed) {
+    moveSpaceship();
+  }
+  spaceShip(x,y);
 }
 
-function spaceShip(){
+function moveSpaceship(){
+  if (key === "w"|| key === "W"){
+    y - y -10;
+  }
+  else if (key ==="s"|| key ==="S") {
+    y - y +10;
+  }
+  if (key ==="d"|| key ==="D") {
+    x - x +10;
+  }
+  if (key === "a" || key ==="A") {
+    x - x -10;
+  }
+}
+
+function spaceShip(x,y){
   noStroke();
   fill(50,205,50);
-  triangle(30, 75, 58, 20, 86, 75);
+  triangle(x, y, 100, 100,100,100);
 }
