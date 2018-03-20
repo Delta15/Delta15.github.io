@@ -17,8 +17,13 @@ function draw() {
 }
 
 function generateInitialTerrain(numberOfRectangles) {
+  let time = 0;
+  let dt = 0.01;
+
   for (let i=0; i<numberOfRectangles; i++) {
-    heights.push(random(100, 500));
+    let currentHeight = noise(time)*500;
+    heights.push(currentHeight);
+    time += dt;
   }
 }
 
@@ -29,4 +34,8 @@ function displayTerrain() {
   for (let i=0; i<numberOfRectangles; i++) {
     rect(i*rectWidth, height, (i+1)*rectWidth, height - heights[i]);
   }
+}
+
+function plantFlag(){
+  
 }
