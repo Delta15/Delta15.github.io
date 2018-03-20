@@ -5,6 +5,10 @@
 let heights = [];
 let numberOfRectangles;
 
+function preload(){
+  flag
+}
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
   numberOfRectangles = width;
@@ -39,9 +43,13 @@ function displayTerrain() {
 
 function plantFlag(){
   let tallest = 0;
-  for (let i=0; i<heights; i++){
+  for (let i=0; i<heights.length; i++){
     if (heights[i] > tallest) {
       tallest = heights[i];
     }
   }
+  //height line
+  let highestY = height - tallest;
+  stroke(255,0,0);
+  line(0,highestY,width, highestY);
 }
