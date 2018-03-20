@@ -12,13 +12,14 @@ function setup() {
 }
 
 function draw() {
-  background(255,0,0);
+  background(255);
   displayTerrain();
+  plantFlag();
 }
 
 function generateInitialTerrain(numberOfRectangles) {
   let time = 0;
-  let dt = 0.01;
+  let dt = 0.005;
 
   for (let i=0; i<numberOfRectangles; i++) {
     let currentHeight = noise(time)*500;
@@ -37,5 +38,10 @@ function displayTerrain() {
 }
 
 function plantFlag(){
-  
+  let tallest = 0;
+  for (let i=0; i<heights; i++){
+    if (heights[i] > tallest) {
+      tallest = heights[i];
+    }
+  }
 }
