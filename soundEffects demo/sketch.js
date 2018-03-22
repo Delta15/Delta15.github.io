@@ -14,5 +14,6 @@ function draw() {
   background(255,0,0);
   textAlign(CENTER,CENTER);
   textSize(100);
-  text(str,x,y,[x2],[y2])
+  fill(255);
+  text("Sample",width/2,height/2);
 }
