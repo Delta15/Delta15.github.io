@@ -11,7 +11,20 @@ function draw() {
 }
 
 function moveBalls(){
-  
+  for (let i=0; i<theBalls.length; i++){
+    theBalls[i].x += theBalls[i].dx;
+    theBalls[i].y += theBalls[i].dy;
+
+    if (theBalls[i].y < 0){
+      theBalls[i].y = height;
+    }
+    else if (theBalls[i].y > height) {
+      theBalls[i].y = 0;
+    }
+    if (theBalls) {
+
+    }
+  }
 }
 
 function displayBalls(){
