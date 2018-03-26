@@ -2,8 +2,8 @@
 // Dan Schellenberg
 // Mar 26, 2018
 
-let rows = 10;
-let cols = 10;
+let rows = 5;
+let cols = 5;
 let grid;
 let cellSize;
 
@@ -32,12 +32,20 @@ function displayGrid() {
   }
 }
 
-function keyPressed() {
-  grid = createRandom2dArray(cols, rows);
+function mousePressed() {
+  let xcoord = floor(mouseX / cellSize);
+  let ycoord = floor(mouseY / cellSize);
+
+  if (grid[xcoord][ycoord] === 1) {
+    grid[xcoord][ycoord] = 0;
+  }
+  else {
+    grid[xcoord][ycoord] = 1;
+  }
 }
 
-function mouseClicked(){
-  
+function keyPressed() {
+  grid = createRandom2dArray(cols, rows);
 }
 
 function createRandom2dArray(cols, rows) {
