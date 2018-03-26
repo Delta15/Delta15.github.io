@@ -27,4 +27,6 @@ function mouseClicked(){
   backgroundMusic.stop();
   anotherMusic.play();
   coder = 255;
+  fill(0);
+  text("W",width/2,height/2);
 }
