@@ -1,11 +1,16 @@
-let grid = [[0,1,0],[1,1,0],[0,0,1]];
-let rows = 3;
-let cols = 3;
+// grid demo
+// Dan Schellenberg
+// Mar 26, 2018
+
+let rows = 10;
+let cols = 10;
+let grid;
 let cellSize;
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(600, 600);
   cellSize = width / cols;
+  grid = createRandom2dArray(cols, rows);
 }
 
 function draw() {
@@ -13,10 +18,13 @@ function draw() {
   displayGrid();
 }
 
-function displayGrid(){
-  for (let x=0; x<cols; x++){
-    for(let y=0; y<rows; y++){
-      if (grid[x][y]=== 0){
+function displayGrid() {
+  for (let x=0; x<cols; x++) {
+    for (let y=0; y<rows; y++) {
+      if (grid[x][y] === 0) {
+        fill(0);
+      }
+      else {
         fill(255);
       }
       rect(x*cellSize, y*cellSize, cellSize, cellSize);
@@ -24,12 +32,16 @@ function displayGrid(){
   }
 }
 
-function createRandom2DArray(cols, rows){
+function keyPressed() {
+  grid = createRandom2dArray(cols, rows);
+}
+
+function createRandom2dArray(cols, rows) {
   let randomGrid = [];
-  for (let x=0; x<cols; x++){
+  for (let x=0; x<cols; x++) {
     randomGrid.push([]);
-    for(let y=0; y<rows; y++){
-      if (random(100) < 50){
+    for (let y=0; y<rows; y++) {
+      if (random(100) < 50) {
         randomGrid[x].push(0);
       }
       else {
