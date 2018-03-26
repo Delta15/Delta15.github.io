@@ -36,6 +36,10 @@ function keyPressed() {
   grid = createRandom2dArray(cols, rows);
 }
 
+function mouseClicked(){
+  
+}
+
 function createRandom2dArray(cols, rows) {
   let randomGrid = [];
   for (let x=0; x<cols; x++) {
