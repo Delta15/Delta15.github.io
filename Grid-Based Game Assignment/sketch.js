@@ -12,6 +12,9 @@ function draw() {
 
 function TVscreen(){
   background(34,139,34);
-  textSize(50);
+  textAlign(CENTER);
+  textFont("Impact");
+  textSize(250);
+  fill(255);
   text("TETRIS",width/2,height/2);
 }
