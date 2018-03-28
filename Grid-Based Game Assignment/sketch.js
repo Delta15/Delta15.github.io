@@ -1,6 +1,11 @@
 // McRavenTuazon
 // 3/28/2018
 // recreating Tetris
+let backMusic;
+
+function preload(){
+  backMusic = loadSound("music/tet.webm");
+}
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -11,6 +16,7 @@ function draw() {
 }
 
 function TVscreen(){
+  backMusic.play();
   background(34,139,34);
   textAlign(CENTER);
   textFont("Impact");
