@@ -16,7 +16,7 @@ function draw() {
 }
 
 function TVscreen(){
-  backMusic.play();
+  backMusic.loop();
   background(34,139,34);
   textAlign(CENTER);
   textFont("Impact");
