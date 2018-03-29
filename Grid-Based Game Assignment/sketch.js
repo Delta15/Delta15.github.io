@@ -9,6 +9,7 @@ function preload(){
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  backMusic.loop();
 }
 
 function draw() {
@@ -16,11 +17,12 @@ function draw() {
 }
 
 function TVscreen(){
-  backMusic.loop();
   background(34,139,34);
   textAlign(CENTER);
   textFont("Impact");
   textSize(250);
   fill(255);
   text("TETRIS",width/2,height/2);
+  textSize(30);
+  text("Press ENTER to start",width/2,height/2+125);
 }
