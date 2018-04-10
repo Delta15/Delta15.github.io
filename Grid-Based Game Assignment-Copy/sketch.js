@@ -89,4 +89,7 @@ function keyTyped(){
   else if (key === "1") {
     voc.play();
   }
+  else if (key === "2") {
+    voc2.play();
+  }
 }
