@@ -5,10 +5,16 @@ let rows = 3;
 let cols = 3;
 let grid;
 let cellS;
+let voc,voc2,hardDrum,hardDrum2,hardDrum3,bellT;
 
-// function preload() {
-//
-// }
+function preload() {
+  voc = loadSound("music/voc.mp3");
+  voc2 = loadSound("music/voc2.mp3");
+  hardDrum = loadSound("music/hardDrum.mp3");
+  hardDrum2 = loadSound("music/hardDrum2.mp3");
+  hardDrum3 = loadSound("music/hardDrum3.mp3");
+  bellT = loadSound("music/bellT.mp3");
+}
 
 function setup() {
   createCanvas(500, 500);
@@ -67,6 +73,20 @@ function Random2dArray(cols, rows) {
   return randomGrid;
 }
 
-function keyPressed(){
-  
+function keyTyped(){
+  if (key === "7") {
+    hardDrum.play();
+  }
+  else if (key === "8") {
+    hardDrum2.play();
+  }
+  else if (key === "9") {
+    hardDrum3.play();
+  }
+  else if (key === "4") {
+    bellT.play();
+  }
+  else if (key === "1") {
+    voc.play();
+  }
 }
