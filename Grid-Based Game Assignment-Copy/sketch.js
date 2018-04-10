@@ -5,7 +5,9 @@ let rows = 3;
 let cols = 3;
 let grid;
 let cellS;
+//pack A
 let voc,voc2,hardDrum,hardDrum2,hardDrum3,bellT;
+//pack B
 let one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve,thirten,fourten,fifteen,sixten;
 
 function preload() {
