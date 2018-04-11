@@ -1,13 +1,14 @@
 // McRavenTuazon
 // 4/9/2018
 //launchpad
+//Imitate a launchpad for example https://www.youtube.com/watch?v=qAeybdD5UoQ
 let rows = 3;
 let cols = 3;
 let grid;
 let cellS;
-//pack A
+//packA
 let voc,voc2,hardDrum,hardDrum2,hardDrum3,bellT;
-//pack B
+//packB
 let one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve,thirten,fourten,fifteen,sixten;
 
 function preload() {
@@ -39,12 +40,10 @@ function setup() {
   createCanvas(600, 600);
   cellS = width/ cols;
   grid = Random2dArray(cols,rows);
-}
 
 function draw() {
-  background(0);
+  background(255);
   drawGrid();
-}
 
 function drawGrid(){
   for (let x=0; x<cols; x++){
@@ -93,6 +92,17 @@ function Random2dArray(cols, rows) {
 }
 
 function keyTyped(){
+  if (key === "=") {
+    // Switch to pack A
+    lever = 1;
+  }
+  else if (key === "+") {
+    // Switch to pack B
+    lever = 2;
+  }
+}
+
+function aPack(){
   if (key === "7") {
     hardDrum.play();
   }
@@ -111,12 +121,10 @@ function keyTyped(){
   else if (key === "2") {
     voc2.play();
   }
-  else if (key === "=") {
-    // Switch to pack A
+}
+
+function bPack(){
+  if (key === "7") {
     one.play();
-  }
-  else if (key === "+") {
-    // Switch to pack B
-    two.play();
   }
 }
