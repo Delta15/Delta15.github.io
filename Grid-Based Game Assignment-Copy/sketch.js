@@ -2,14 +2,14 @@
 // 4/9/2018
 //launchpad
 //Imitate a launchpad for example https://www.youtube.com/watch?v=qAeybdD5UoQ
-let rows = 3;
-let cols = 3;
+let rows = 4;
+let cols = 4;
 let grid;
 let cellS;
 //packA
-let voc,voc2,hardDrum,hardDrum2,hardDrum3,bellT;
+let voc, voc2, hardDrum, hardDrum2, hardDrum3, bellT;
 //packB
-let one,two,three,four,five,six,seven,eight,nine,ten,eleven,twelve,thirten,fourten,fifteen,sixten;
+let one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirten, fourten, fifteen, sixten;
 
 function preload() {
   voc = loadSound("music/voc.mp3");
@@ -38,23 +38,25 @@ function preload() {
 
 function setup() {
   createCanvas(600, 600);
-  cellS = width/ cols;
-  grid = Random2dArray(cols,rows);
+  cellS = width / cols;
+  grid = Random2dArray(cols, rows);
+}
 
 function draw() {
   background(255);
   drawGrid();
+}
 
-function drawGrid(){
-  for (let x=0; x<cols; x++){
-    for (let y=0; y<rows; y++){
-      if (grid[x][y]===0) {
+function drawGrid() {
+  for (let x = 0; x < cols; x++) {
+    for (let y = 0; y < rows; y++) {
+      if (grid[x][y] === 0) {
         fill(255);
       }
       else {
-        fill(255,0,0);
+        fill(255, 0, 0);
       }
-      rect(x*cellS, y*cellS, cellS, cellS);
+      rect(x * cellS, y * cellS, cellS, cellS);
     }
   }
 }
@@ -63,11 +65,16 @@ function mousePressed() {
   let xcoord = floor(mouseX / cellS);
   let ycoord = floor(mouseY / cellS);
 
-  if (grid[xcoord][ycoord] === 1) {
+  if (grid[1][1]) {
     grid[xcoord][ycoord] = 0;
+    one.play();
+  }
+  else if (grid[1][2]) {
+    four.play();
   }
   else {
     grid[xcoord][ycoord] = 1;
+    two.play();
   }
 }
 
@@ -77,9 +84,9 @@ function mousePressed() {
 
 function Random2dArray(cols, rows) {
   let randomGrid = [];
-  for (let x=0; x<cols; x++) {
+  for (let x = 0; x < cols; x++) {
     randomGrid.push([]);
-    for (let y=0; y<rows; y++) {
+    for (let y = 0; y < rows; y++) {
       if (random(100) < 50) {
         randomGrid[x].push(0);
       }
@@ -91,40 +98,78 @@ function Random2dArray(cols, rows) {
   return randomGrid;
 }
 
-function keyTyped(){
-  if (key === "=") {
-    // Switch to pack A
-    lever = 1;
-  }
-  else if (key === "+") {
-    // Switch to pack B
-    lever = 2;
-  }
-}
-
-function aPack(){
-  if (key === "7") {
-    hardDrum.play();
-  }
-  else if (key === "8") {
-    hardDrum2.play();
-  }
-  else if (key === "9") {
-    hardDrum3.play();
-  }
-  else if (key === "4") {
-    bellT.play();
-  }
-  else if (key === "1") {
-    voc.play();
-  }
-  else if (key === "2") {
-    voc2.play();
-  }
-}
-
-function bPack(){
-  if (key === "7") {
+function keyTyped() {
+  if (key === "q" || key === "Q") {
     one.play();
   }
+  else if (key === "w" || key === "W") {
+    two.play();
+  }
+  else if (key === "e" || key === "E") {
+    three.play();
+  }
+  else if (key === "r" || key === "R") {
+    four.play();
+  }
+  else if (key === "t" || key === "T") {
+    five.play();
+  }
+  else if (key === "y" || key === "Y") {
+    six.play();
+  }
+  else if (key === "a" || key === "A") {
+    seven.play();
+  }
+  else if (key === "s" || key === "S") {
+    eight.play();
+  }
+  else if (key === "d" || key === "D") {
+    nine.play();
+  }
+  else if (key === "f" || key === "F") {
+    ten.play();
+  }
+  else if (key === "g" || key === "G") {
+    eleven.play();
+  }
+  else if (key === "z" || key === "Z") {
+    twelve.play();
+  }
+  else if (key === "x" || key === "X") {
+    thirten.play();
+  }
+  else if (key === "c" || key === "C") {
+    fourten.play();
+  }
+  else if (key === "v" || key === "V") {
+    fifteen.play();
+  }
+  else if (key === "b" || key === "B") {
+    sixten.play();
+  }
 }
+
+// function aPack(){
+//   if (key === "7") {
+//     hardDrum.play();
+//   }
+//   else if (key === "8") {
+//     hardDrum2.play();
+//   }
+//   else if (key === "9") {
+//     hardDrum3.play();
+//   }
+//   else if (key === "4") {
+//     bellT.play();
+//   }
+//   else if (key === "1") {
+//     voc.play();
+//   }
+//   else if (key === "2") {
+//     voc2.play();
+//   }
+// }
+//
+// function bPack(){
+//
+// }
