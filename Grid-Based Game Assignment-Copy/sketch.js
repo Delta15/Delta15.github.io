@@ -65,12 +65,9 @@ function mousePressed() {
   let xcoord = floor(mouseX / cellS);
   let ycoord = floor(mouseY / cellS);
 
-  if (grid[1][1]) {
+  if (grid[xcoord][ycoord] === 1) {
     grid[xcoord][ycoord] = 0;
     one.play();
-  }
-  else if (grid[1][2]) {
-    four.play();
   }
   else {
     grid[xcoord][ycoord] = 1;
