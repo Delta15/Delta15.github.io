@@ -72,9 +72,9 @@ function mousePressed() {
   }
 }
 
-function keyPressed() {
-  grid = Random2dArray(cols, rows);
-}
+// function keyPressed() {
+//   grid = Random2dArray(cols, rows);
+// }
 
 function Random2dArray(cols, rows) {
   let randomGrid = [];
