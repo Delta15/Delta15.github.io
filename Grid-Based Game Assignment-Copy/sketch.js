@@ -7,6 +7,7 @@ let cols = 4;
 let grid;
 let cellS;
 let one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirten, fourten, fifteen, sixten;
+let after, better, doit, ever, faster, harder, hour, makeit, makeus, morethan, never, our, over, stronger, workis, workit;
 
 function preload() {
   one = loadSound("music/1.wav");
@@ -25,6 +26,24 @@ function preload() {
   fourten = loadSound("music/14.wav");
   fifteen = loadSound("music/15.wav");
   sixten = loadSound("music/16.wav");
+  //////////////////////////////////////////////////////////////////////////////
+  // after = loadSound("music/after.wav");
+  // better = loadSound("music/better.wav");
+  // doit = loadSound("music/doit.wav");
+  // ever = loadSound("music/ever.wav");
+  // faster = loadSound("music/faster.wav");
+  // harder = loadSound("music/harder.wav");
+  // hour = loadSound("music/hour.wav");
+  // makeit = loadSound("music/makeit.wav");
+  // makeus = loadSound("music/makeus.wav");
+  // morethan = loadSound("music/makethan.wav");
+  // never = loadSound("music/never.wav");
+  // our = loadSound("music/our.wav");
+  // over = loadSound("music/over.wav");
+  // stronger = loadSound("music/stronger.wav");
+  // workis = loadSound("music/workis.wav");
+  // workit = loadSound("music/workit.wav");
+
 }
 
 function setup() {
@@ -34,9 +53,9 @@ function setup() {
 }
 
 function draw() {
-  background(255);
   drawGrid();
 }
+
 
 function drawGrid() {
   for (let x = 0; x < cols; x++) {
@@ -45,7 +64,7 @@ function drawGrid() {
         fill(255);
       }
       else {
-        fill(255,0,0);
+        fill(255, 0, 0);
       }
       rect(x * cellS, y * cellS, cellS, cellS);
     }
@@ -56,13 +75,62 @@ function mousePressed() {
   let xcoord = floor(mouseX / cellS);
   let ycoord = floor(mouseY / cellS);
 
-  if (grid[xcoord][ycoord] === 1) {
-    grid[xcoord][ycoord] = 0;
+  if (xcoord === 0 && ycoord === 0) {
+    one.play();
+  }
+  else if (xcoord === 1 && ycoord === 0) {
+    two.play();
+  }
+  else if (xcoord === 2 && ycoord === 0) {
+    three.play();
+  }
+  else if (xcoord === 3 && ycoord === 0) {
+    four.play();
+  }
+  else if (xcoord === 0 && ycoord === 1) {
+    five.play();
+  }
+  else if (xcoord === 1 && ycoord === 1) {
+    six.play();
+  }
+  else if (xcoord === 2 && ycoord === 1) {
+    seven.play();
+  }
+  else if (xcoord === 3 && ycoord === 1) {
+    eight.play();
+  }
+  else if (xcoord === 0 && ycoord === 2) {
+    nine.play();
+  }
+  else if (xcoord === 1 && ycoord === 2) {
     ten.play();
   }
-  else {
-    grid[xcoord][ycoord] = 1;
+  else if (xcoord === 2 && ycoord === 2) {
+    eleven.play();
   }
+  else if (xcoord === 3 && ycoord === 2) {
+    twelve.play();
+  }
+  else if (xcoord === 0 && ycoord === 3) {
+    thirten.play();
+  }
+  else if (xcoord === 1 && ycoord === 3) {
+    fourten.play();
+  }
+  else if (xcoord === 2 && ycoord === 3) {
+    fifteen.play();
+  }
+  else if (xcoord === 3 && ycoord === 3) {
+    sixten.play();
+  }
+  // if (grid[xcoord][ycoord] === 1) {
+  //   grid[xcoord][ycoord] = 0;
+  //   ten.play();
+  // }
+  // else {
+  //   grid[xcoord][ycoord] = 1;
+  // }
+
 }
 
 // function keyPressed() {
