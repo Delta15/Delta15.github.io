@@ -6,6 +6,7 @@ let rows = 4;
 let cols = 4;
 let grid;
 let cellS;
+let instrumental;
 let one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirten, fourten, fifteen, sixten;
 // let after, better, doit, ever, faster, harder, hour, makeit, makeus, morethan, never, our, over, stronger, workis, workit;
 
@@ -26,6 +27,7 @@ function preload() {
   fourten = loadSound("music/14.wav");
   fifteen = loadSound("music/15.wav");
   sixten = loadSound("music/16.wav");
+  instrumental = loadSound("music/instrumental.mp3");
   //////////////////////////////////////////////////////////////////////////////
   // after = loadSound("music/after.wav");
   // better = loadSound("music/better.wav");
@@ -201,5 +203,9 @@ function keyTyped() {
   }
   else if (key === "b" || key === "B") {
     sixten.play();
+  }
+  else if (key === "p" || key === "P") {
+    instrumental.stop();
+    instrumental.play();
   }
 }
