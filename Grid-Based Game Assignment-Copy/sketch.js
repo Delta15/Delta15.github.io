@@ -6,18 +6,9 @@ let rows = 4;
 let cols = 4;
 let grid;
 let cellS;
-//packA
-let voc, voc2, hardDrum, hardDrum2, hardDrum3, bellT;
-//packB
 let one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirten, fourten, fifteen, sixten;
 
 function preload() {
-  voc = loadSound("music/voc.mp3");
-  voc2 = loadSound("music/voc2.mp3");
-  hardDrum = loadSound("music/hardDrum.mp3");
-  hardDrum2 = loadSound("music/hardDrum2.mp3");
-  hardDrum3 = loadSound("music/hardDrum3.mp3");
-  bellT = loadSound("music/bellT.mp3");
   one = loadSound("music/1.wav");
   two = loadSound("music/2.wav");
   three = loadSound("music/3.wav");
@@ -54,7 +45,7 @@ function drawGrid() {
         fill(255);
       }
       else {
-        fill(255, 0, 0);
+        fill(255,0,0);
       }
       rect(x * cellS, y * cellS, cellS, cellS);
     }
@@ -67,7 +58,7 @@ function mousePressed() {
 
   if (grid[xcoord][ycoord] === 1) {
     grid[xcoord][ycoord] = 0;
-    one.play();
+    ten.play();
   }
   else {
     grid[xcoord][ycoord] = 1;
@@ -144,28 +135,3 @@ function keyTyped() {
     sixten.play();
   }
 }
-
-// function aPack(){
-//   if (key === "7") {
-//     hardDrum.play();
-//   }
-//   else if (key === "8") {
-//     hardDrum2.play();
-//   }
-//   else if (key === "9") {
-//     hardDrum3.play();
-//   }
-//   else if (key === "4") {
-//     bellT.play();
-//   }
-//   else if (key === "1") {
-//     voc.play();
-//   }
-//   else if (key === "2") {
-//     voc2.play();
-//   }
-// }
-//
-// function bPack(){
-//
-// }
