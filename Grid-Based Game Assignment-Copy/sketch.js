@@ -71,7 +71,6 @@ function mousePressed() {
   }
   else {
     grid[xcoord][ycoord] = 1;
-    two.play();
   }
 }
 
