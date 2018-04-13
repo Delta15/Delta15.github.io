@@ -2,13 +2,14 @@
 // 4/9/2018
 //launchpad
 //Imitate a launchpad for example https://www.youtube.com/watch?v=qAeybdD5UoQ
+
 let rows = 4;
-let cols = 4;
+let cols = 8;
 let grid;
 let cellS;
 let instrumental;
 let one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirten, fourten, fifteen, sixten;
-// let after, better, doit, ever, faster, harder, hour, makeit, makeus, morethan, never, our, over, stronger, workis, workit;
+let after, better, doit, ever, faster, harder, hour, makeit, makeus, morethan, never, our, over, stronger, workis, workit;
 
 function preload() {
   one = loadSound("music/1.wav");
@@ -49,12 +50,29 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(700, 600);
   cellS = width / cols;
   grid = Random2dArray(cols, rows);
+  after = loadSound("music/after.wav");
+  better = loadSound("music/better.wav");
+  doit = loadSound("music/do it.wav");
+  ever = loadSound("music/ever.wav");
+  faster = loadSound("music/faster.wav");
+  harder = loadSound("music/harder.wav");
+  hour = loadSound("music/hour.wav");
+  makeit = loadSound("music/make it.wav");
+  makeus = loadSound("music/makes us.wav");
+  morethan = loadSound("music/more than.wav");
+  never = loadSound("music/never.wav");
+  our = loadSound("music/our.wav");
+  over = loadSound("music/over.wav");
+  stronger = loadSound("music/stronger.wav");
+  workis = loadSound("music/work is.wav");
+  workit = loadSound("music/work it.wav");
 }
 
 function draw() {
+  background(0);
   drawGrid();
 }
 
@@ -156,56 +174,104 @@ function Random2dArray(cols, rows) {
 }
 
 function keyTyped() {
-  if (key === "q" || key === "Q") {
+  if (key === "1" || key === "1") {
     one.play();
   }
-  else if (key === "w" || key === "W") {
+  else if (key === "2" || key === "2") {
     two.play();
   }
-  else if (key === "e" || key === "E") {
+  else if (key === "3" || key === "3") {
     three.play();
   }
-  else if (key === "r" || key === "R") {
+  else if (key === "4" || key === "4") {
     four.play();
   }
-  else if (key === "t" || key === "T") {
+  else if (key === "5" || key === "5") {
     five.play();
   }
-  else if (key === "y" || key === "Y") {
+  else if (key === "6" || key === "6") {
     six.play();
   }
-  else if (key === "a" || key === "A") {
+  else if (key === "7" || key === "7") {
     seven.play();
   }
-  else if (key === "s" || key === "S") {
+  else if (key === "8" || key === "8") {
     eight.play();
   }
-  else if (key === "d" || key === "D") {
+  else if (key === "q" || key === "Q") {
     nine.play();
   }
-  else if (key === "f" || key === "F") {
+  else if (key === "w" || key === "W") {
     ten.play();
   }
-  else if (key === "g" || key === "G") {
+  else if (key === "e" || key === "E") {
     eleven.play();
   }
-  else if (key === "z" || key === "Z") {
+  else if (key === "r" || key === "R") {
     twelve.play();
   }
-  else if (key === "x" || key === "X") {
+  else if (key === "t" || key === "T") {
     thirten.play();
   }
-  else if (key === "c" || key === "C") {
+  else if (key === "y" || key === "Y") {
     fourten.play();
   }
-  else if (key === "v" || key === "V") {
+  else if (key === "u" || key === "U") {
     fifteen.play();
   }
-  else if (key === "b" || key === "B") {
+  else if (key === "i" || key === "I") {
     sixten.play();
   }
   else if (key === "p" || key === "P") {
     instrumental.stop();
     instrumental.play();
+  }
+  else if (key === "a" || key === "A") {
+    after.play();
+  }
+  else if (key === "s" || key === "S") {
+    better.play();
+  }
+  else if (key === "d" || key === "D") {
+    doit.play();
+  }
+  else if (key === "f" || key === "F") {
+    ever.play();
+  }
+  else if (key === "g" || key === "G") {
+    faster.play();
+  }
+  else if (key === "h" || key === "H") {
+    harder.play();
+  }
+  else if (key === "j" || key === "J") {
+    hour.play();
+  }
+  else if (key === "k" || key === "K") {
+    makeit.play();
+  }
+  else if (key === "z" || key === "Z") {
+    makeus.play();
+  }
+  else if (key === "x" || key === "X") {
+    morethan.play();
+  }
+  else if (key === "c" || key === "C") {
+    never.play();
+  }
+  else if (key === "v" || key === "V") {
+    our.play();
+  }
+  else if (key === "b" || key === "B") {
+    over.play();
+  }
+  else if (key === "n" || key === "N") {
+    stronger.play();
+  }
+  else if (key === "m" || key === "M") {
+    workis.play();
+  }
+  else if (key === "," || key === "<") {
+    workit.play();
   }
 }
