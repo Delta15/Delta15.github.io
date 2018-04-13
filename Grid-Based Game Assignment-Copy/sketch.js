@@ -11,6 +11,7 @@ let instrumental;
 let one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirten, fourten, fifteen, sixten;
 let after, better, doit, ever, faster, harder, hour, makeit, makeus, morethan, never, our, over, stronger, workis, workit;
 let textPOP = " ";
+let lever = 1;
 
 function preload() {
   one = loadSound("music/1.wav");
@@ -56,14 +57,37 @@ function setup() {
 
 function draw() {
   background(0);
-  drawGrid();
-  displayText();
+  display();
+  // drawGrid();
+  // displayText();
+}
+
+function display(){
+  if (lever === 1) {
+    fill(255);
+    textFont("Impact");
+    textSize(100);
+    textAlign(CENTER,CENTER);
+    text("|CONTROLS|",width/2,height/2 - 150);
+    textSize(40);
+    text("1, 2, 3, 4, 5, 6, 7, 8",width/2,height/2);
+    text("Q, W, E, R, T, Y, U, I",width/2,height/2 + 40);
+    text("A, S, D, F, G, H, J, K",width/2,height/2 + 80);
+    text("Z, X, C, V, B, N, M, ,",width/2,height/2 + 120);
+    text("P to play & Esc to stop",width/2,height/2 + 160);
+    textSize(50);
+    text("Press ENTER to continue", width/2, height/2 + 210);
+  }
+  else if (lever === 2) {
+    drawGrid();
+    displayText();
+  }
 }
 
 function displayText(){
   fill(255);
   textFont("Impact");
-  textSize(100);
+  textSize(90);
   textAlign(CENTER,CENTER);
   text(textPOP,width/2,height/2 +160);
 }
@@ -383,5 +407,8 @@ function keyTyped() {
 function keyPressed(){
   if (keyCode === ESCAPE) {
     instrumental.stop();
+  }
+  else if (keyCode === ENTER) {
+    lever = 2;
   }
 }
