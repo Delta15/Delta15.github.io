@@ -60,8 +60,6 @@ function setup() {
 function draw() {
   background(0);
   display();
-  // drawGrid();
-  // displayText();
 }
 
 function display(){
