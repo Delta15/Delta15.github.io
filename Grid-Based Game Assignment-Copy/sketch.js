@@ -631,7 +631,7 @@ function keyTyped() {
     instrumental.play();
   }
   else if (key === "o" || key === "O") {
-    textPOP = " ";
+    textPOP = "PRACTICE";
     instrumental.stop();
     punk.stop();
     punk.play();
