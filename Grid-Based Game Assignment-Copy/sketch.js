@@ -344,11 +344,14 @@ function keyTyped() {
   }
   else if (key === "p" || key === "P") {
     textPOP = " ";
+    punk.stop();
     instrumental.stop();
     instrumental.play();
   }
   else if (key === "o" || key === "O") {
     textPOP = " ";
+    instrumental.stop();
+    punk.stop();
     punk.play();
   }
   else if (key === "a" || key === "A") {
