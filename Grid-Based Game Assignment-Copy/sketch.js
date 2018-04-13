@@ -13,7 +13,6 @@ let one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, t
 let after, better, doit, ever, faster, harder, hour, makeit, makeus, morethan, never, our, over, stronger, workis, workit;
 let textPOP = " ";
 let lever = 1;
-let whiteAndred = true;
 
 function preload() {
   one = loadSound("music/1.wav");
@@ -61,11 +60,6 @@ function setup() {
 function draw() {
   background(0);
   display();
-  if (whiteAndred === true) {
-    if (second() / 2) {
-      whiteAndred = false;
-    }
-  }
   // drawGrid();
   // displayText();
 }
@@ -125,133 +119,319 @@ function mousePressed() {
     if (grid[xcoord][ycoord] === 1) {
       grid[xcoord][ycoord] = 0;
     }
-    else if (whiteAndred === false) {
+    else {
       grid[xcoord][ycoord] = 1;
     }
   }
   else if (xcoord === 1 && ycoord === 0) {
     textPOP = "MAKE IT";
     two.play();
+    if (grid[xcoord][ycoord] === 1) {
+      grid[xcoord][ycoord] = 0;
+    }
+    else {
+      grid[xcoord][ycoord] = 1;
+    }
   }
   else if (xcoord === 2 && ycoord === 0) {
     textPOP = "DO IT";
     three.play();
+    if (grid[xcoord][ycoord] === 1) {
+      grid[xcoord][ycoord] = 0;
+    }
+    else {
+      grid[xcoord][ycoord] = 1;
+    }
   }
   else if (xcoord === 3 && ycoord === 0) {
     textPOP = "MAKE US";
     four.play();
+    if (grid[xcoord][ycoord] === 1) {
+      grid[xcoord][ycoord] = 0;
+    }
+    else {
+      grid[xcoord][ycoord] = 1;
+    }
   }
   else if (xcoord === 4 && ycoord === 0) {
     textPOP = "AFTER";
     after.play();
+    if (grid[xcoord][ycoord] === 1) {
+      grid[xcoord][ycoord] = 0;
+    }
+    else {
+      grid[xcoord][ycoord] = 1;
+    }
   }
   else if (xcoord === 5 && ycoord === 0) {
     textPOP = "BETTER";
     better.play();
+    if (grid[xcoord][ycoord] === 1) {
+      grid[xcoord][ycoord] = 0;
+    }
+    else {
+      grid[xcoord][ycoord] = 1;
+    }
   }
   else if (xcoord === 6 && ycoord === 0) {
     textPOP = "DO IT";
     doit.play();
+    if (grid[xcoord][ycoord] === 1) {
+      grid[xcoord][ycoord] = 0;
+    }
+    else {
+      grid[xcoord][ycoord] = 1;
+    }
   }
   else if (xcoord === 7 && ycoord === 0) {
     textPOP = "EVER";
     ever.play();
+    if (grid[xcoord][ycoord] === 1) {
+      grid[xcoord][ycoord] = 0;
+    }
+    else {
+      grid[xcoord][ycoord] = 1;
+    }
   }
   else if (xcoord === 0 && ycoord === 1) {
     textPOP = "HARDER";
     five.play();
+    if (grid[xcoord][ycoord] === 1) {
+      grid[xcoord][ycoord] = 0;
+    }
+    else {
+      grid[xcoord][ycoord] = 1;
+    }
   }
   else if (xcoord === 1 && ycoord === 1) {
     textPOP = "BETTER";
     six.play();
+    if (grid[xcoord][ycoord] === 1) {
+      grid[xcoord][ycoord] = 0;
+    }
+    else {
+      grid[xcoord][ycoord] = 1;
+    }
   }
   else if (xcoord === 2 && ycoord === 1) {
     textPOP = "FASTER";
     seven.play();
+    if (grid[xcoord][ycoord] === 1) {
+      grid[xcoord][ycoord] = 0;
+    }
+    else {
+      grid[xcoord][ycoord] = 1;
+    }
   }
   else if (xcoord === 3 && ycoord === 1) {
     textPOP = "STRONGER";
     eight.play();
+    if (grid[xcoord][ycoord] === 1) {
+      grid[xcoord][ycoord] = 0;
+    }
+    else {
+      grid[xcoord][ycoord] = 1;
+    }
   }
   else if (xcoord === 4 && ycoord === 1) {
     textPOP = "FASTER";
     faster.play();
+    if (grid[xcoord][ycoord] === 1) {
+      grid[xcoord][ycoord] = 0;
+    }
+    else {
+      grid[xcoord][ycoord] = 1;
+    }
   }
   else if (xcoord === 5 && ycoord === 1) {
     textPOP = "HARDER";
     harder.play();
+    if (grid[xcoord][ycoord] === 1) {
+      grid[xcoord][ycoord] = 0;
+    }
+    else {
+      grid[xcoord][ycoord] = 1;
+    }
   }
   else if (xcoord === 6 && ycoord === 1) {
     textPOP = "HOUR";
     hour.play();
+    if (grid[xcoord][ycoord] === 1) {
+      grid[xcoord][ycoord] = 0;
+    }
+    else {
+      grid[xcoord][ycoord] = 1;
+    }
   }
   else if (xcoord === 7 && ycoord === 1) {
     textPOP = "MAKE IT";
     makeit.play();
+    if (grid[xcoord][ycoord] === 1) {
+      grid[xcoord][ycoord] = 0;
+    }
+    else {
+      grid[xcoord][ycoord] = 1;
+    }
   }
   else if (xcoord === 0 && ycoord === 2) {
     textPOP = "MORE THAN";
     nine.play();
+    if (grid[xcoord][ycoord] === 1) {
+      grid[xcoord][ycoord] = 0;
+    }
+    else {
+      grid[xcoord][ycoord] = 1;
+    }
   }
   else if (xcoord === 1 && ycoord === 2) {
     textPOP = "HOUR";
     ten.play();
+    if (grid[xcoord][ycoord] === 1) {
+      grid[xcoord][ycoord] = 0;
+    }
+    else {
+      grid[xcoord][ycoord] = 1;
+    }
   }
   else if (xcoord === 2 && ycoord === 2) {
     textPOP = "OUR";
     eleven.play();
+    if (grid[xcoord][ycoord] === 1) {
+      grid[xcoord][ycoord] = 0;
+    }
+    else {
+      grid[xcoord][ycoord] = 1;
+    }
   }
   else if (xcoord === 3 && ycoord === 2) {
     textPOP = "NEVER";
     twelve.play();
+    if (grid[xcoord][ycoord] === 1) {
+      grid[xcoord][ycoord] = 0;
+    }
+    else {
+      grid[xcoord][ycoord] = 1;
+    }
   }
   else if (xcoord === 4 && ycoord === 2) {
     textPOP = "MAKE US";
     makeus.play();
+    if (grid[xcoord][ycoord] === 1) {
+      grid[xcoord][ycoord] = 0;
+    }
+    else {
+      grid[xcoord][ycoord] = 1;
+    }
   }
   else if (xcoord === 5 && ycoord === 2) {
     textPOP = "MORE THAN";
     morethan.play();
+    if (grid[xcoord][ycoord] === 1) {
+      grid[xcoord][ycoord] = 0;
+    }
+    else {
+      grid[xcoord][ycoord] = 1;
+    }
   }
   else if (xcoord === 6 && ycoord === 2) {
     textPOP = "NEVER";
     never.play();
+    if (grid[xcoord][ycoord] === 1) {
+      grid[xcoord][ycoord] = 0;
+    }
+    else {
+      grid[xcoord][ycoord] = 1;
+    }
   }
   else if (xcoord === 7 && ycoord === 2) {
     textPOP = "OUR";
     our.play();
+    if (grid[xcoord][ycoord] === 1) {
+      grid[xcoord][ycoord] = 0;
+    }
+    else {
+      grid[xcoord][ycoord] = 1;
+    }
   }
   else if (xcoord === 0 && ycoord === 3) {
     textPOP = "EVER";
     thirten.play();
+    if (grid[xcoord][ycoord] === 1) {
+      grid[xcoord][ycoord] = 0;
+    }
+    else {
+      grid[xcoord][ycoord] = 1;
+    }
   }
   else if (xcoord === 1 && ycoord === 3) {
     textPOP = "AFTER";
     fourten.play();
+    if (grid[xcoord][ycoord] === 1) {
+      grid[xcoord][ycoord] = 0;
+    }
+    else {
+      grid[xcoord][ycoord] = 1;
+    }
   }
   else if (xcoord === 2 && ycoord === 3) {
     textPOP = "WORK IS";
     fifteen.play();
+    if (grid[xcoord][ycoord] === 1) {
+      grid[xcoord][ycoord] = 0;
+    }
+    else {
+      grid[xcoord][ycoord] = 1;
+    }
   }
   else if (xcoord === 3 && ycoord === 3) {
     textPOP = "OVER";
     sixten.play();
+    if (grid[xcoord][ycoord] === 1) {
+      grid[xcoord][ycoord] = 0;
+    }
+    else {
+      grid[xcoord][ycoord] = 1;
+    }
   }
   else if (xcoord === 4 && ycoord === 3) {
     textPOP = "OVER";
     over.play();
+    if (grid[xcoord][ycoord] === 1) {
+      grid[xcoord][ycoord] = 0;
+    }
+    else {
+      grid[xcoord][ycoord] = 1;
+    }
   }
   else if (xcoord === 5 && ycoord === 3) {
     textPOP = "STRONGER";
     stronger.play();
+    if (grid[xcoord][ycoord] === 1) {
+      grid[xcoord][ycoord] = 0;
+    }
+    else {
+      grid[xcoord][ycoord] = 1;
+    }
   }
   else if (xcoord === 6 && ycoord === 3) {
     textPOP = "WORK IS";
     workis.play();
+    if (grid[xcoord][ycoord] === 1) {
+      grid[xcoord][ycoord] = 0;
+    }
+    else {
+      grid[xcoord][ycoord] = 1;
+    }
   }
   else if (xcoord === 7 && ycoord === 3) {
     textPOP = "WORK IT";
     workit.play();
+    if (grid[xcoord][ycoord] === 1) {
+      grid[xcoord][ycoord] = 0;
+    }
+    else {
+      grid[xcoord][ycoord] = 1;
+    }
   }
   // if (grid[xcoord][ycoord] === 1) {
   //   grid[xcoord][ycoord] = 0;
@@ -276,7 +456,7 @@ function Random2dArray(cols, rows) {
         randomGrid[x].push(0);
       }
       else {
-        randomGrid[x].push(1);
+        randomGrid[x].push(0);
       }
     }
   }
@@ -284,69 +464,167 @@ function Random2dArray(cols, rows) {
 }
 
 function keyTyped() {
+  let xcoord;
+  let ycoord;
   if (key === "1" || key === "1") {
     textPOP = "WORK IT";
     one.play();
+    if (grid[0][0] === 1) {
+      grid[0][0] = 0;
+    }
+    else {
+      grid[0][0] = 1;
+    }
   }
   else if (key === "2" || key === "2") {
     textPOP = "MAKE IT";
     two.play();
+    if (grid[1][0] === 1) {
+      grid[1][0] = 0;
+    }
+    else {
+      grid[1][0] = 1;
+    }
   }
   else if (key === "3" || key === "3") {
     textPOP = "DO IT";
     three.play();
+    if (grid[2][0] === 1) {
+      grid[2][0] = 0;
+    }
+    else {
+      grid[2][0] = 1;
+    }
   }
   else if (key === "4" || key === "4") {
     textPOP = "MAKE US";
     four.play();
+    if (grid[3][0] === 1) {
+      grid[3][0] = 0;
+    }
+    else {
+      grid[3][0] = 1;
+    }
   }
   else if (key === "5" || key === "5") {
     textPOP = "HARDER";
     five.play();
+    if (grid[0][1] === 1) {
+      grid[0][1] = 0;
+    }
+    else {
+      grid[0][1] = 1;
+    }
   }
   else if (key === "6" || key === "6") {
     textPOP = "BETTER";
     six.play();
+    if (grid[1][1] === 1) {
+      grid[1][1] = 0;
+    }
+    else {
+      grid[1][1] = 1;
+    }
   }
   else if (key === "7" || key === "7") {
     textPOP = "FASTER";
     seven.play();
+    if (grid[2][1] === 1) {
+      grid[2][1] = 0;
+    }
+    else {
+      grid[2][1] = 1;
+    }
   }
   else if (key === "8" || key === "8") {
     textPOP = "STRONGER";
     eight.play();
+    if (grid[3][1] === 1) {
+      grid[3][1] = 0;
+    }
+    else {
+      grid[3][1] = 1;
+    }
   }
   else if (key === "q" || key === "Q") {
     textPOP = "MORE THAN";
     nine.play();
+    if (grid[0][2] === 1) {
+      grid[0][2] = 0;
+    }
+    else {
+      grid[0][2] = 1;
+    }
   }
   else if (key === "w" || key === "W") {
     textPOP = "HOUR";
     ten.play();
+    if (grid[1][2] === 1) {
+      grid[1][2] = 0;
+    }
+    else {
+      grid[1][2] = 1;
+    }
   }
   else if (key === "e" || key === "E") {
     textPOP = "OUR";
     eleven.play();
+    if (grid[2][2] === 1) {
+      grid[2][2] = 0;
+    }
+    else {
+      grid[2][2] = 1;
+    }
   }
   else if (key === "r" || key === "R") {
     textPOP = "NEVER";
     twelve.play();
+    if (grid[3][2] === 1) {
+      grid[3][2] = 0;
+    }
+    else {
+      grid[3][2] = 1;
+    }
   }
   else if (key === "t" || key === "T") {
     textPOP = "EVER";
     thirten.play();
+    if (grid[0][3] === 1) {
+      grid[0][3] = 0;
+    }
+    else {
+      grid[0][3] = 1;
+    }
   }
   else if (key === "y" || key === "Y") {
     textPOP = "AFTER";
     fourten.play();
+    if (grid[1][3] === 1) {
+      grid[1][3] = 0;
+    }
+    else {
+      grid[1][3] = 1;
+    }
   }
   else if (key === "u" || key === "U") {
     textPOP = "WORK IS";
     fifteen.play();
+    if (grid[2][3] === 1) {
+      grid[2][3] = 0;
+    }
+    else {
+      grid[2][3] = 1;
+    }
   }
   else if (key === "i" || key === "I") {
     textPOP = "OVER";
     sixten.play();
+    if (grid[3][3] === 1) {
+      grid[3][3] = 0;
+    }
+    else {
+      grid[3][3] = 1;
+    }
   }
   else if (key === "p" || key === "P") {
     textPOP = " ";
@@ -363,66 +641,162 @@ function keyTyped() {
   else if (key === "a" || key === "A") {
     textPOP = "AFTER";
     after.play();
+    if (grid[4][0] === 1) {
+      grid[4][0] = 0;
+    }
+    else {
+      grid[4][0] = 1;
+    }
   }
   else if (key === "s" || key === "S") {
     textPOP = "BETTER";
     better.play();
+    if (grid[5][0] === 1) {
+      grid[5][0] = 0;
+    }
+    else {
+      grid[5][0] = 1;
+    }
   }
   else if (key === "d" || key === "D") {
     textPOP = "DO IT";
     doit.play();
+    if (grid[6][0] === 1) {
+      grid[6][0] = 0;
+    }
+    else {
+      grid[6][0] = 1;
+    }
   }
   else if (key === "f" || key === "F") {
     textPOP = "EVER";
     ever.play();
+    if (grid[7][0] === 1) {
+      grid[7][0] = 0;
+    }
+    else {
+      grid[7][0] = 1;
+    }
   }
   else if (key === "g" || key === "G") {
     textPOP = "FASTER";
     faster.play();
+    if (grid[4][1] === 1) {
+      grid[4][1] = 0;
+    }
+    else {
+      grid[4][1] = 1;
+    }
   }
   else if (key === "h" || key === "H") {
     textPOP = "HARDER";
     harder.play();
+    if (grid[5][1] === 1) {
+      grid[5][1] = 0;
+    }
+    else {
+      grid[5][1] = 1;
+    }
   }
   else if (key === "j" || key === "J") {
     textPOP = "OUR";
     hour.play();
+    if (grid[6][1] === 1) {
+      grid[6][1] = 0;
+    }
+    else {
+      grid[6][1] = 1;
+    }
   }
   else if (key === "k" || key === "K") {
     textPOP = "MAKE IT";
     makeit.play();
+    if (grid[7][1] === 1) {
+      grid[7][1] = 0;
+    }
+    else {
+      grid[7][1] = 1;
+    }
   }
   else if (key === "z" || key === "Z") {
     textPOP = "MAKE US";
     makeus.play();
+    if (grid[4][2] === 1) {
+      grid[4][2] = 0;
+    }
+    else {
+      grid[4][2] = 1;
+    }
   }
   else if (key === "x" || key === "X") {
     textPOP = "MORE THAN";
     morethan.play();
+    if (grid[5][2] === 1) {
+      grid[5][2] = 0;
+    }
+    else {
+      grid[5][2] = 1;
+    }
   }
   else if (key === "c" || key === "C") {
     textPOP = "NEVER";
     never.play();
+    if (grid[6][2] === 1) {
+      grid[6][2] = 0;
+    }
+    else {
+      grid[6][2] = 1;
+    }
   }
   else if (key === "v" || key === "V") {
     textPOP = "OUR";
     our.play();
+    if (grid[7][2] === 1) {
+      grid[7][2] = 0;
+    }
+    else {
+      grid[7][2] = 1;
+    }
   }
   else if (key === "b" || key === "B") {
     textPOP = "OVER";
     over.play();
+    if (grid[4][3] === 1) {
+      grid[4][3] = 0;
+    }
+    else {
+      grid[4][3] = 1;
+    }
   }
   else if (key === "n" || key === "N") {
     textPOP = "STRONGER";
     stronger.play();
+    if (grid[5][3] === 1) {
+      grid[5][3] = 0;
+    }
+    else {
+      grid[5][3] = 1;
+    }
   }
   else if (key === "m" || key === "M") {
     textPOP = "WORK IS";
     workis.play();
+    if (grid[6][3] === 1) {
+      grid[6][3] = 0;
+    }
+    else {
+      grid[6][3] = 1;
+    }
   }
   else if (key === "," || key === "<") {
     textPOP = "WORK IT";
     workit.play();
+    if (grid[7][3] === 1) {
+      grid[7][3] = 0;
+    }
+    else {
+      grid[7][3] = 1;
+    }
   }
 }
 
