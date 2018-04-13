@@ -8,6 +8,7 @@ let cols = 8;
 let grid;
 let cellS;
 let instrumental;
+let punk;
 let one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirten, fourten, fifteen, sixten;
 let after, better, doit, ever, faster, harder, hour, makeit, makeus, morethan, never, our, over, stronger, workis, workit;
 let textPOP = " ";
@@ -31,6 +32,7 @@ function preload() {
   fifteen = loadSound("music/15.wav");
   sixten = loadSound("music/16.wav");
   instrumental = loadSound("music/instrumental.mp3");
+  punk = loadSound("music/daftPunk.mp3");
 }
 
 function setup() {
@@ -74,7 +76,7 @@ function display(){
     text("Q, W, E, R, T, Y, U, I",width/2,height/2 + 40);
     text("A, S, D, F, G, H, J, K",width/2,height/2 + 80);
     text("Z, X, C, V, B, N, M, ,",width/2,height/2 + 120);
-    text("P to play & Esc to stop",width/2,height/2 + 160);
+    text("P to play & O to practice & Esc to stop",width/2,height/2 + 160);
     textSize(50);
     text("Press ENTER to continue", width/2, height/2 + 210);
   }
@@ -114,6 +116,12 @@ function mousePressed() {
   if (xcoord === 0 && ycoord === 0) {
     textPOP = "WORK IT";
     one.play();
+    if (grid[xcoord][ycoord] === 1) {
+      grid[xcoord][ycoord] = 0;
+    }
+    else {
+      grid[xcoord][ycoord] = 1;
+    }
   }
   else if (xcoord === 1 && ycoord === 0) {
     textPOP = "MAKE IT";
@@ -335,8 +343,13 @@ function keyTyped() {
     sixten.play();
   }
   else if (key === "p" || key === "P") {
+    textPOP = " ";
     instrumental.stop();
     instrumental.play();
+  }
+  else if (key === "o" || key === "O") {
+    textPOP = " ";
+    punk.play();
   }
   else if (key === "a" || key === "A") {
     textPOP = "AFTER";
@@ -406,7 +419,9 @@ function keyTyped() {
 
 function keyPressed(){
   if (keyCode === ESCAPE) {
+    textPOP = " ";
     instrumental.stop();
+    punk.stop();
   }
   else if (keyCode === ENTER) {
     lever = 2;
