@@ -13,6 +13,7 @@ let one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, t
 let after, better, doit, ever, faster, harder, hour, makeit, makeus, morethan, never, our, over, stronger, workis, workit;
 let textPOP = " ";
 let lever = 1;
+let whiteAndred = true;
 
 function preload() {
   one = loadSound("music/1.wav");
@@ -60,6 +61,11 @@ function setup() {
 function draw() {
   background(0);
   display();
+  if (whiteAndred === true) {
+    if (second() / 2) {
+      whiteAndred = false;
+    }
+  }
   // drawGrid();
   // displayText();
 }
@@ -119,7 +125,7 @@ function mousePressed() {
     if (grid[xcoord][ycoord] === 1) {
       grid[xcoord][ycoord] = 0;
     }
-    else {
+    else if (whiteAndred === false) {
       grid[xcoord][ycoord] = 1;
     }
   }
