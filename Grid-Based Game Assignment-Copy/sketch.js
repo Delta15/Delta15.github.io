@@ -1,7 +1,23 @@
 // McRavenTuazon
 // 4/9/2018
+
 //launchpad
 //Imitate a launchpad for example https://www.youtube.com/watch?v=qAeybdD5UoQ
+//Each grid plays a sample voice
+
+//source
+//https://www.youtube.com/watch?v=hbV5Uv_L8xM
+//https://www.youtube.com/watch?v=GDpmVUEjagg
+//https://www.youtube.com/watch?v=WSttUkU015s
+
+//CONTROLS
+//1 to 8
+//Q to I
+//A to K
+//Z to <
+//ESC to stop punk/instrumental and clear displayText
+// O to play with voice & P to play without voice
+//Click any grid to play sample voice as well
 
 let rows = 4;
 let cols = 8;
