@@ -30,31 +30,7 @@ let after, better, doit, ever, faster, harder, hour, makeit, makeus, morethan, n
 let textPOP = " ";
 let lever = 1;
 
-// function preload() {
-//   one = loadSound("music/1.wav");
-//   two = loadSound("music/2.wav");
-//   three = loadSound("music/3.wav");
-//   four = loadSound("music/4.wav");
-//   five = loadSound("music/5.wav");
-//   six = loadSound("music/6.wav");
-//   seven = loadSound("music/7.wav");
-//   eight = loadSound("music/8.wav");
-//   nine = loadSound("music/9.wav");
-//   ten = loadSound("music/10.wav");
-//   eleven = loadSound("music/11.wav");
-//   twelve = loadSound("music/12.wav");
-//   thirten = loadSound("music/13.wav");
-//   fourten = loadSound("music/14.wav");
-//   fifteen = loadSound("music/15.wav");
-//   sixten = loadSound("music/16.wav");
-//   instrumental = loadSound("music/instrumental.mp3");
-//   punk = loadSound("music/daftPunk.mp3");
-// }
-
-function setup() {
-  createCanvas(700, 600);
-  cellS = width / cols;
-  grid = Random2dArray(cols, rows);
+function preload() {
   one = loadSound("music/1.wav");
   two = loadSound("music/2.wav");
   three = loadSound("music/3.wav");
@@ -73,6 +49,12 @@ function setup() {
   sixten = loadSound("music/16.wav");
   instrumental = loadSound("music/instrumental.mp3");
   punk = loadSound("music/daftPunk.mp3");
+}
+
+function setup() {
+  createCanvas(700, 600);
+  cellS = width / cols;
+  grid = Random2dArray(cols, rows);
   after = loadSound("music/after.wav");
   better = loadSound("music/better.wav");
   doit = loadSound("music/do it.wav");
