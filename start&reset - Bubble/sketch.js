@@ -37,7 +37,6 @@ class Timer {
 
 class Bubble {
   constructor(){
-    
+    ellipse(random(width), random(height), random(100, 100), random(100, 100));
   }
-  ellipse(random(width), random(height), random(100, 100), random(100, 100));
 }
