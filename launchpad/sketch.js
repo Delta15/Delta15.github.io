@@ -48,7 +48,7 @@ function preload() {
   fourten = loadSound("music/14.wav");
   fifteen = loadSound("music/15.wav");
   sixten = loadSound("music/16.wav");
-  instrumental = loadSound("music/instrumental.mp3");
+  // instrumental = loadSound("music/instrumental.mp3");
   punk = loadSound("music/daftPunk.mp3");
 }
 
