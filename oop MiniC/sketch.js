@@ -1,3 +1,6 @@
+let x;
+let y;
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
 }
@@ -8,12 +11,10 @@ function draw() {
   display();
 }
 
-function move(){
-  // if (key === "a" || key ==="B" ) {
-  // 
-  // }
+function move() {
+
 }
 
-function display(){
-  ellipse(mouseX, mouseY, 50, 50);
+function display() {
+  ellipse(mouseX, mouseY, 20, 20);
 }
