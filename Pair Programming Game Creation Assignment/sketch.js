@@ -1,6 +1,6 @@
 let mainMusic;
 let programState;
-let textDisplay = "SAMPLE ";
+let textDisplay = "SAMPLE";
 
 function preload(){
   mainMusic = loadSound("music/Automation.mp3");
@@ -32,7 +32,7 @@ function backgroundSetup() {
 function mainMenu() {
   push();
   noStroke();
-  rectMode(CENTER);
+  rectMode(CENTER, CENTER);
   fill(0);
   rect(width/2,height/2,windowWidth,500);
   textAlign(CENTER, CENTER);
@@ -53,14 +53,24 @@ function mainMenu() {
     programState = 2;
     mainMusic.stop();
   }
+  else if (keyIsPressed) {
+    programState = 2;
+    mainMusic.stop();
+  }
 }
 
 function intro() {
   background(255);
+  noStroke();
+  rectMode(CENTER);
   fill(0);
-  textAlign(CENTER);
+  rect(width/2,height/2,500,windowHeight);
+  fill(255, 255, 0);
+  rect(width/2,height/2,480,windowHeight);
+  fill(0);
+  textAlign(CENTER, CENTER);
   textSize(100);
-  text(textDisplay, width / 2, height / 2);
+  text(textDisplay, width/2, height/2);
 }
 
 class Timer {
