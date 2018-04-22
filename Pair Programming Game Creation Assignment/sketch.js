@@ -21,9 +21,11 @@ function draw() {
     mainMenu();
   }
   else if (programState === 2) {
+    // introSET = new Timer(3000);
     intro();
-    introTextChanger();
-    introSET = new Timer(1000);
+    if (introSET.isDone()) {
+      textDisplay = "SET";
+    }
   }
 }
 
@@ -35,7 +37,7 @@ function backgroundSetup() {
 }
 
 function mainMenu() {
-  background(255, 0, 0);
+  background(255);
   push();
   noStroke();
   rectMode(CENTER, CENTER);
@@ -57,124 +59,45 @@ function mainMenu() {
   pop();
   if (mouseIsPressed) {
     programState = 2;
+    introSET = new Timer(1000);
     mainMusic.stop();
   }
   else if (keyIsPressed) {
     programState = 2;
+    introSET = new Timer(1000);
     mainMusic.stop();
   }
 }
 
 function intro() {
-  textDisplay = "READY";
   background(255);
   noStroke();
   rectMode(CENTER);
   fill(0);
   rect(width/2,height/2,500,windowHeight);
-  fill(255, 0, 0);
-  rect(width/2,height/2,480,windowHeight);
   fill(255);
+  rect(width/2,height/2,480,windowHeight);
+  fill(0);
   textAlign(CENTER, CENTER);
   textSize(100);
   text(textDisplay, width/2, height/2);
+  textDisplay = "READY";
 }
 
-function introTextChanger(){
-  if (introSET.isDone()) {
-    textDisplay = "SET";
-    introGO = new Timer2(1000);
-  }
-  else if (introGO.isDone()) {
-    textDisplay = "GO";
-    gameBegin = new Timer3(1000);
-  }
-}
-
-class Timer {
-  constructor(waitTime) {
+class Timer{
+  constructor(waitTime){
     this.waitTime = waitTime;
     this.startTime = millis();
     this.finishTime = this.startTime + this.waitTime;
     this.timerIsDone = false;
   }
-
-  start() {
-    this.startTime = millis();
-    this.finishTime = this.startTime + this.waitTime;
-    this.timerIsDone = false;
-  }
-
-  reset(newWaitTime) {
+  reset(newWaitTime){
     this.waitTime = newWaitTime;
     this.startTime = millis();
     this.finishTime = this.startTime + this.waitTime;
     this.timerIsDone = false;
   }
-
-  isDone() {
-    if (millis() >= this.finishTime) {
-      return true;
-    }
-    else {
-      return false;
-    }
-  }
-}
-
-class Timer2 {
-  constructor(waitTime) {
-    this.waitTime = waitTime;
-    this.startTime = millis();
-    this.finishTime = this.startTime + this.waitTime;
-    this.timerIsDone = false;
-  }
-
-  start() {
-    this.startTime = millis();
-    this.finishTime = this.startTime + this.waitTime;
-    this.timerIsDone = false;
-  }
-
-  reset(newWaitTime) {
-    this.waitTime = newWaitTime;
-    this.startTime = millis();
-    this.finishTime = this.startTime + this.waitTime;
-    this.timerIsDone = false;
-  }
-
-  isDone() {
-    if (millis() >= this.finishTime) {
-      return true;
-    }
-    else {
-      return false;
-    }
-  }
-}
-
-class Timer3 {
-  constructor(waitTime) {
-    this.waitTime = waitTime;
-    this.startTime = millis();
-    this.finishTime = this.startTime + this.waitTime;
-    this.timerIsDone = false;
-  }
-
-  start() {
-    this.startTime = millis();
-    this.finishTime = this.startTime + this.waitTime;
-    this.timerIsDone = false;
-  }
-
-  reset(newWaitTime) {
-    this.waitTime = newWaitTime;
-    this.startTime = millis();
-    this.finishTime = this.startTime + this.waitTime;
-    this.timerIsDone = false;
-  }
-
-  isDone() {
+  isDone(){
     if (millis() >= this.finishTime) {
       return true;
     }
