@@ -30,6 +30,7 @@ function backgroundSetup() {
 }
 
 function mainMenu() {
+  background(255, 0, 0);
   push();
   noStroke();
   rectMode(CENTER, CENTER);
@@ -39,7 +40,7 @@ function mainMenu() {
   fill(255);
   textSize(200);
   text("MINI", width / 2, height / 2 + 100);
-  text("MINI", width / 2, height / 2 );
+  text("[MINI]", width / 2, height / 2 );
   text("MINI", width / 2, height / 2 - 100);
   pop();
   push();
@@ -65,9 +66,9 @@ function intro() {
   rectMode(CENTER);
   fill(0);
   rect(width/2,height/2,500,windowHeight);
-  fill(255, 255, 0);
+  fill(255, 0, 0);
   rect(width/2,height/2,480,windowHeight);
-  fill(0);
+  fill(255);
   textAlign(CENTER, CENTER);
   textSize(100);
   text(textDisplay, width/2, height/2);
