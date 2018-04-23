@@ -1,4 +1,5 @@
 let mainMusic;
+let introSound;
 let programState;
 let introSET;
 let introGO;
@@ -7,6 +8,7 @@ let textDisplay = " ";
 
 function preload(){
   mainMusic = loadSound("music/Automation.mp3");
+  introSound = loadSound("music/countDown.mp3");
 }
 
 function setup() {
@@ -61,11 +63,13 @@ function mainMenu() {
     programState = 2;
     introSET = new Timer(1000);
     mainMusic.stop();
+    introSound.play();
   }
   else if (keyIsPressed) {
     programState = 2;
     introSET = new Timer(1000);
     mainMusic.stop();
+    introSound.play();
   }
 }
 
