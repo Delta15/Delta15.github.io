@@ -1,10 +1,12 @@
 let mainMusic;
 let introSound;
 let programState;
+let nameIntro;
 let introSET;
 let introGO;
 let gameBegin;
 let textDisplay = " ";
+let fadeAnimation;
 
 function preload(){
   mainMusic = loadSound("music/Automation.mp3");
@@ -13,17 +15,23 @@ function preload(){
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  backgroundSetup();
   mainMusic.loop();
   programState = 1;
+  nameIntro = new Text(2000);
+  fadeAnimation = createGraphics(windowWidth, windowHeight);
 }
 
 function draw() {
   if (programState === 1) {
-    mainMenu();
+    background(0);
+    if (nameIntro.isDone()) {
+      programState = 2;
+    }
   }
   else if (programState === 2) {
-    // introSET = new Timer(3000);
+    mainMenu();
+  }
+  else if (programState === 3) {
     intro();
     if (introSET.isDone()) {
       textDisplay = "SET";
@@ -31,20 +39,14 @@ function draw() {
   }
 }
 
-function backgroundSetup() {
-  let goldColor = color(255);
-  let blueColor = color(0);
-  let mainMenuBackground = lerpColor(goldColor, blueColor, 0.30);
-  background(mainMenuBackground);
-}
-
 function mainMenu() {
   background(255);
   push();
-  noStroke();
-  rectMode(CENTER, CENTER);
-  fill(0);
-  rect(width/2,height/2,windowWidth,500);
+  fadeAnimation.noStroke();
+  fadeAnimation.rectMode(CENTER, CENTER);
+  fadeAnimation.fill(0, 1);
+  fadeAnimation.rect(width/2,height/2,windowWidth,500);
+  image(fadeAnimation, 0, 0, windowWidth, 800);
   textAlign(CENTER, CENTER);
   fill(255);
   textSize(200);
@@ -60,13 +62,13 @@ function mainMenu() {
   text("Press any to continue", width / 2, height / 2 + 200);
   pop();
   if (mouseIsPressed) {
-    programState = 2;
+    programState = 3;
     introSET = new Timer(1000);
     mainMusic.stop();
     introSound.play();
   }
   else if (keyIsPressed) {
-    programState = 2;
+    programState = 3;
     introSET = new Timer(1000);
     mainMusic.stop();
     introSound.play();
@@ -89,6 +91,29 @@ function intro() {
 }
 
 class Timer{
+  constructor(waitTime){
+    this.waitTime = waitTime;
+    this.startTime = millis();
+    this.finishTime = this.startTime + this.waitTime;
+    this.timerIsDone = false;
+  }
+  reset(newWaitTime){
+    this.waitTime = newWaitTime;
+    this.startTime = millis();
+    this.finishTime = this.startTime + this.waitTime;
+    this.timerIsDone = false;
+  }
+  isDone(){
+    if (millis() >= this.finishTime) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+}
+
+class Text{
   constructor(waitTime){
     this.waitTime = waitTime;
     this.startTime = millis();
