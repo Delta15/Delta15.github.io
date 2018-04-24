@@ -39,9 +39,9 @@ function draw() {
   }
   else if (programState === 3) {
     introBG();
-    textDisplay = "READY";
+    textDisplay = "3";
     if (introSET.isDone()) {
-      textDisplay = "ON YOUR MARK";
+      textDisplay = "2";
       introGO = new Timer(1000);
       programState = 4;
     }
@@ -49,7 +49,7 @@ function draw() {
   else if (programState === 4) {
     introBG();
     if (introGO.isDone()) {
-      textDisplay = "SET";
+      textDisplay = "1";
     }
   }
 }
