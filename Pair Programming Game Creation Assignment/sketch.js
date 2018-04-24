@@ -38,9 +38,18 @@ function draw() {
     mainMenu();
   }
   else if (programState === 3) {
-    intro();
+    introBG();
+    textDisplay = "READY";
     if (introSET.isDone()) {
       textDisplay = "SET";
+      introGO = new Timer(1000);
+      programState = 4;
+    }
+  }
+  else if (programState === 4) {
+    introBG();
+    if (introGO.isDone()) {
+      textDisplay = "GO";
     }
   }
 }
@@ -67,13 +76,7 @@ function mainMenu() {
   textFont("impact");
   text("Press any to continue", width / 2, height / 2 + 200);
   pop();
-  if (mouseIsPressed) {
-    programState = 3;
-    introSET = new Timer(1000);
-    mainMusic.stop();
-    introSound.play();
-  }
-  else if (keyIsPressed) {
+  if (mouseIsPressed || keyIsPressed) {
     programState = 3;
     introSET = new Timer(1000);
     mainMusic.stop();
@@ -81,7 +84,7 @@ function mainMenu() {
   }
 }
 
-function intro() {
+function introBG() {
   background(255);
   noStroke();
   rectMode(CENTER);
@@ -93,10 +96,32 @@ function intro() {
   textAlign(CENTER, CENTER);
   textSize(100);
   text(textDisplay, width/2, height/2);
-  textDisplay = "READY";
 }
 
 class Timer{
+  constructor(waitTime){
+    this.waitTime = waitTime;
+    this.startTime = millis();
+    this.finishTime = this.startTime + this.waitTime;
+    this.timerIsDone = false;
+  }
+  reset(newWaitTime){
+    this.waitTime = newWaitTime;
+    this.startTime = millis();
+    this.finishTime = this.startTime + this.waitTime;
+    this.timerIsDone = false;
+  }
+  isDone(){
+    if (millis() >= this.finishTime) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+}
+
+class Timer2{
   constructor(waitTime){
     this.waitTime = waitTime;
     this.startTime = millis();
