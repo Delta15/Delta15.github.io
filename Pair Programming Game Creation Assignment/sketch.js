@@ -1,9 +1,8 @@
 let mainMusic;
 let introSound;
 let programState;
-let nameIntro;
-let introSET;
-let introGO;
+let nameIntro, classIntro;
+let introSET, introGO;
 let gameBegin;
 let textDisplay = " ";
 let fadeAnimation;
@@ -17,7 +16,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   mainMusic.loop();
   programState = 1;
-  nameIntro = new Text(2000);
+  nameIntro = new Timer(2000);
   fadeAnimation = createGraphics(windowWidth, windowHeight);
 }
 
@@ -28,25 +27,35 @@ function draw() {
     textAlign(CENTER,CENTER);
     textSize(100);
     text("McRavenTuazon",width/2,height/2 - 100);
-    text("WilliamAhiahonu",width/2,height/2);
-    text("CS30",width/2,height/2 + 100);
+    text("WilliamAhiahonu",width/2,height/2 + 100);
     if (nameIntro.isDone()) {
       programState = 2;
+      classIntro = new Timer(2000);
     }
   }
   else if (programState === 2) {
-    mainMenu();
+    background(0);
+    fill(255);
+    textAlign(CENTER,CENTER);
+    textSize(100);
+    text("CS30",width/2,height/2);
+    if (classIntro.isDone()) {
+      programState = 3;
+    }
   }
   else if (programState === 3) {
+    mainMenu();
+  }
+  else if (programState === 4) {
     introBG();
     textDisplay = "3";
     if (introSET.isDone()) {
       textDisplay = "2";
       introGO = new Timer(1000);
-      programState = 4;
+      programState = 5;
     }
   }
-  else if (programState === 4) {
+  else if (programState === 5) {
     introBG();
     if (introGO.isDone()) {
       textDisplay = "1";
@@ -77,7 +86,7 @@ function mainMenu() {
   text("Press any to continue", width / 2, height / 2 + 200);
   pop();
   if (mouseIsPressed || keyIsPressed) {
-    programState = 3;
+    programState = 4;
     introSET = new Timer(1000);
     mainMusic.stop();
     introSound.play();
@@ -99,52 +108,6 @@ function introBG() {
 }
 
 class Timer{
-  constructor(waitTime){
-    this.waitTime = waitTime;
-    this.startTime = millis();
-    this.finishTime = this.startTime + this.waitTime;
-    this.timerIsDone = false;
-  }
-  reset(newWaitTime){
-    this.waitTime = newWaitTime;
-    this.startTime = millis();
-    this.finishTime = this.startTime + this.waitTime;
-    this.timerIsDone = false;
-  }
-  isDone(){
-    if (millis() >= this.finishTime) {
-      return true;
-    }
-    else {
-      return false;
-    }
-  }
-}
-
-class Timer2{
-  constructor(waitTime){
-    this.waitTime = waitTime;
-    this.startTime = millis();
-    this.finishTime = this.startTime + this.waitTime;
-    this.timerIsDone = false;
-  }
-  reset(newWaitTime){
-    this.waitTime = newWaitTime;
-    this.startTime = millis();
-    this.finishTime = this.startTime + this.waitTime;
-    this.timerIsDone = false;
-  }
-  isDone(){
-    if (millis() >= this.finishTime) {
-      return true;
-    }
-    else {
-      return false;
-    }
-  }
-}
-
-class Text{
   constructor(waitTime){
     this.waitTime = waitTime;
     this.startTime = millis();
