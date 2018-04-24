@@ -24,6 +24,12 @@ function setup() {
 function draw() {
   if (programState === 1) {
     background(0);
+    fill(255);
+    textAlign(CENTER,CENTER);
+    textSize(100);
+    text("McRavenTuazon",width/2,height/2 - 100);
+    text("WilliamAhiahonu",width/2,height/2);
+    text("CS30",width/2,height/2 + 100);
     if (nameIntro.isDone()) {
       programState = 2;
     }
