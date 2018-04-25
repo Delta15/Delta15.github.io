@@ -2,7 +2,7 @@ let nameIntro, classIntro;
 let mainMusic;
 let gameOn, Gmusic;
 let programState;
-let introSound, introSET, introGO;
+let introSound, introSET, introGO, introSTART;
 let textDisplay = " ";
 let fadeAnimation;
 
@@ -52,6 +52,7 @@ function draw() {
     if (introSET.isDone()) {
       textDisplay = "2";
       introGO = new Timer(1000);
+      introSTART = new Timer(1300);
       programState = 5;
     }
   }
@@ -59,14 +60,13 @@ function draw() {
     introBG();
     if (introGO.isDone()) {
       textDisplay = "1";
+    }
+    if (introSTART.isDone()) {
+      programState = 6;
       gameOn = new Timer(1000);
     }
   }
-  else if (gameOn.isDone()) {
-    cupGame();
-    //programState = 6;
-  }
-  else if (programState === 6) {
+  else if (gameOn.isDone() && programState === 6) {
     cupGame();
   }
 }
@@ -116,6 +116,7 @@ function introBG() {
 }
 
 function cupGame(){
+  Gmusic.play();
   background(0);
 }
 
