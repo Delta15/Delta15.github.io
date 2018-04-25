@@ -9,6 +9,7 @@ let fadeAnimation;
 function preload(){
   mainMusic = loadSound("music/Automation.mp3");
   introSound = loadSound("music/countDown.mp3");
+  Gmusic = loadSound("music/Ryo.mp3");
 }
 
 function setup() {
@@ -64,7 +65,6 @@ function draw() {
   else if (gameOn.isDone()) {
     cupGame();
     //programState = 6;
-
   }
   else if (programState === 6) {
     cupGame();
