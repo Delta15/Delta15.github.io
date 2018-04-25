@@ -1,9 +1,8 @@
-let mainMusic;
-let introSound;
-let programState;
 let nameIntro, classIntro;
-let introSET, introGO;
-let gameBegin;
+let mainMusic;
+let gameOn, Gmusic;
+let programState;
+let introSound, introSET, introGO;
 let textDisplay = " ";
 let fadeAnimation;
 
@@ -26,8 +25,8 @@ function draw() {
     fill(255);
     textAlign(CENTER,CENTER);
     textSize(100);
-    text("McRavenTuazon",width/2,height/2 - 100);
-    text("WilliamAhiahonu",width/2,height/2 + 100);
+    text("McRavenTuazon",width/2,height/2 - 50);
+    text("WilliamAhiahonu",width/2,height/2 + 50);
     if (nameIntro.isDone()) {
       programState = 2;
       classIntro = new Timer(2000);
@@ -59,7 +58,16 @@ function draw() {
     introBG();
     if (introGO.isDone()) {
       textDisplay = "1";
+      gameOn = new Timer(1000);
     }
+  }
+  else if (gameOn.isDone()) {
+    cupGame();
+    //programState = 6;
+
+  }
+  else if (programState === 6) {
+    cupGame();
   }
 }
 
@@ -74,9 +82,9 @@ function mainMenu() {
   textAlign(CENTER, CENTER);
   fill(255);
   textSize(200);
-  text("MINI", width / 2, height / 2 + 100);
+  text("MINI", width / 2, height / 2 + 110);
   text("[MINI]", width / 2, height / 2 );
-  text("MINI", width / 2, height / 2 - 100);
+  text("MINI", width / 2, height / 2 - 110);
   pop();
   push();
   fill(255);
@@ -105,6 +113,10 @@ function introBG() {
   textAlign(CENTER, CENTER);
   textSize(100);
   text(textDisplay, width/2, height/2);
+}
+
+function cupGame(){
+  background(0);
 }
 
 class Timer{
