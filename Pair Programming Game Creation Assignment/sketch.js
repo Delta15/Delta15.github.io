@@ -7,16 +7,16 @@ let textDisplay = " ";
 let fadeAnimation;
 
 function preload(){
-  mainMusic = loadSound("music/Automation.mp3");
+  mainMusic = loadSound("music/Ryo.mp3");
   introSound = loadSound("music/countDown.mp3");
-  Gmusic = loadSound("music/Ryo.mp3");
+  Gmusic = loadSound("music/Sector.mp3");
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  Gmusic.loop();
+  mainMusic.loop();
   programState = 1;
-  nameIntro = new Timer(2000);
+  nameIntro = new Timer(5000);
   fadeAnimation = createGraphics(windowWidth, windowHeight);
 }
 
@@ -30,7 +30,7 @@ function draw() {
     text("WilliamAhiahonu",width/2,height/2 + 50);
     if (nameIntro.isDone()) {
       programState = 2;
-      classIntro = new Timer(2000);
+      classIntro = new Timer(2800);
     }
   }
   else if (programState === 2) {
@@ -64,6 +64,7 @@ function draw() {
     if (introSTART.isDone()) {
       programState = 6;
       gameOn = new Timer(1000);
+      Gmusic.play();
     }
   }
   else if (gameOn.isDone() && programState === 6) {
@@ -96,7 +97,7 @@ function mainMenu() {
   if (mouseIsPressed || keyIsPressed) {
     programState = 4;
     introSET = new Timer(1000);
-    Gmusic.stop();
+    mainMusic.stop();
     introSound.play();
   }
 }
@@ -116,7 +117,6 @@ function introBG() {
 }
 
 function cupGame(){
-  // Gmusic.play();
   background(0);
 }
 
