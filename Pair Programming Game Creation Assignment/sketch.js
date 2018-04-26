@@ -14,7 +14,7 @@ function preload(){
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  mainMusic.loop();
+  Gmusic.loop();
   programState = 1;
   nameIntro = new Timer(2000);
   fadeAnimation = createGraphics(windowWidth, windowHeight);
@@ -76,7 +76,7 @@ function mainMenu() {
   push();
   fadeAnimation.noStroke();
   fadeAnimation.rectMode(CENTER, CENTER);
-  fadeAnimation.fill(0, 1);
+  fadeAnimation.fill(0, 8);
   fadeAnimation.rect(width/2,height/2,windowWidth,500);
   image(fadeAnimation, 0, 0, windowWidth, 800);
   textAlign(CENTER, CENTER);
@@ -96,7 +96,7 @@ function mainMenu() {
   if (mouseIsPressed || keyIsPressed) {
     programState = 4;
     introSET = new Timer(1000);
-    mainMusic.stop();
+    Gmusic.stop();
     introSound.play();
   }
 }
@@ -116,7 +116,7 @@ function introBG() {
 }
 
 function cupGame(){
-  Gmusic.play();
+  // Gmusic.play();
   background(0);
 }
 
