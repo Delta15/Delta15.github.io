@@ -9,14 +9,14 @@ let fadeAnimation;
 function preload(){
   mainMusic = loadSound("music/Ryo.mp3");
   introSound = loadSound("music/countDown.mp3");
-  Gmusic = loadSound("music/Sector.mp3");
+  Gmusic = loadSound("music/powerCore.mp3");
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   mainMusic.loop();
   programState = 1;
-  nameIntro = new Timer(5000);
+  nameIntro = new Timer(3900);
   fadeAnimation = createGraphics(windowWidth, windowHeight);
 }
 
@@ -26,11 +26,11 @@ function draw() {
     fill(255);
     textAlign(CENTER,CENTER);
     textSize(100);
-    text("McRavenTuazon",width/2,height/2 - 50);
-    text("WilliamAhiahonu",width/2,height/2 + 50);
+    text("McRavenTuazon",width/2 - 200,height/2 - 50);
+    text("WilliamAhiahonu",width/2 + 200,height/2 + 50);
     if (nameIntro.isDone()) {
       programState = 2;
-      classIntro = new Timer(2800);
+      classIntro = new Timer(3900);
     }
   }
   else if (programState === 2) {
@@ -118,6 +118,10 @@ function introBG() {
 
 function cupGame(){
   background(0);
+  fill(255);
+  textSize(100);
+  textAlign(CENTER,CENTER);
+  text("GAME1",width/2,height/2);
 }
 
 class Timer{
