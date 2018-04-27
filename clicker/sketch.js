@@ -76,5 +76,7 @@ function keyTyped(){
 }
 
 function deviceShaken(){
-  state = 2;
+  if (state === 1) {
+    state = 2;
+  }
 }
