@@ -70,8 +70,7 @@ function mouseClicked(){
 
 function keyTyped(){
   if (key === "e" || key === "E"){
-    background(255);
-    clear();
+    state = 1;
   }
 }
 
