@@ -1,6 +1,6 @@
 let nameIntro, classIntro;
 let mainMusic;
-let gameOn, Gmusic;
+let gameOn, Gmusic, startT;
 let programState;
 let introSound, introSET, introGO, introSTART;
 let textDisplay = " ";
@@ -71,6 +71,7 @@ function draw() {
     }
   }
   else if (gameOn.isDone() && programState === 6) {
+    startT = new Display(60000);
     gameOne();
   }
 }
@@ -81,8 +82,8 @@ function mainMenu() {
   fadeAnimation.noStroke();
   fadeAnimation.rectMode(CENTER, CENTER);
   fadeAnimation.fill(0, 8);
-  fadeAnimation.rect(width/2,height/2,windowWidth,500);
-  image(fadeAnimation, 0, 0, windowWidth, 800);
+  fadeAnimation.rect(width/2,height/2,windowWidth,windowHeight/1.1);
+  image(fadeAnimation, 0, 0, windowWidth, windowHeight/1.1);
   textAlign(CENTER, CENTER);
   fill(255);
   textSize(200);
@@ -128,6 +129,29 @@ function gameOne(){
 }
 
 class Timer{
+  constructor(waitTime){
+    this.waitTime = waitTime;
+    this.startTime = millis();
+    this.finishTime = this.startTime + this.waitTime;
+    this.timerIsDone = false;
+  }
+  reset(newWaitTime){
+    this.waitTime = newWaitTime;
+    this.startTime = millis();
+    this.finishTime = this.startTime + this.waitTime;
+    this.timerIsDone = false;
+  }
+  isDone(){
+    if (millis() >= this.finishTime) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+}
+
+class Display{
   constructor(waitTime){
     this.waitTime = waitTime;
     this.startTime = millis();
