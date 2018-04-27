@@ -68,7 +68,7 @@ function draw() {
     }
   }
   else if (gameOn.isDone() && programState === 6) {
-    cupGame();
+    gameOne();
   }
 }
 
@@ -116,7 +116,7 @@ function introBG() {
   text(textDisplay, width/2, height/2);
 }
 
-function cupGame(){
+function gameOne(){
   background(0);
   fill(255);
   textSize(100);
