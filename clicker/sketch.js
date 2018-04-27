@@ -78,4 +78,13 @@ function deviceShaken(){
   if (state === 1) {
     state = 2;
   }
+  else if (state === 2) {
+    state = 3;
+  }
+  else if (state === 3) {
+    state = 4;
+  }
+  else if (state === 4) {
+    state = 1;
+  }
 }
