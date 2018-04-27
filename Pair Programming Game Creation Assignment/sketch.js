@@ -27,6 +27,9 @@ function draw() {
     textAlign(CENTER,CENTER);
     textSize(100);
     text("McRavenTuazon",width/2 - 200,height/2 - 50);
+    rectMode(CENTER);
+    rect(width/2,height/2 + 50,windowWidth,100);
+    fill(0);
     text("WilliamAhiahonu",width/2 + 200,height/2 + 50);
     if (nameIntro.isDone()) {
       programState = 2;
