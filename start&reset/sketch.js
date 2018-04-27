@@ -1,7 +1,7 @@
 let myTimer;
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  myTimer = new Timer(3000);
+  myTimer = new Timer(1000);
 }
 
 function draw() {
