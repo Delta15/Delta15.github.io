@@ -9,6 +9,7 @@ function setup() {
 }
 
 function draw() {
+  deviceShaken();
   if (state === 1) {
     background(255,105,180);
     boxStart3();
