@@ -1,73 +1,90 @@
-let swither;
-let x;
-let y;
+let state = 1;
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
-  swither = 1;
-  x = width/2;
-  y = height/2;
+  createCanvas(windowWidth, windowHeight, WEBGL);
 }
 
 function draw() {
-  gameScreen();
-}
-
-function gameScreen(){
-  if (swither===1){
-    gameOpening();
+  if (state === 1) {
+    background(255,0,8);
+    inBox();
+    midBox();
+    MidBoxII();
+    outBox();
   }
-  else if (swither === 2) {
-    gameStart();
+  else if (state === 2) {
+    background(34,0,255);
+    inBox();
+    midBox();
+    MidBoxII();
   }
-}
-
-function keyPressed(){
-  if (keyCode === ENTER){
-    swither = 2;
+  else if (state === 3) {
+    background(0,255,51);
+    inBox();
+    midBox();
   }
-}
-
-function gameOpening(){
-  background(255);
-  fill(0);
-  noStroke();
-  rectMode(CENTER);
-  rect(width/2,height/2,windowWidth,200);
-  fill(255);
-  textFont("Impact");
-  textAlign(CENTER, CENTER);
-  textSize(100);
-  text("DROP",width/2,height/2);
-  textSize(30);
-  text("Press ENTER to start",width/2, height/2+75);
-}
-
-function gameStart(){
-  background(255);
-  if (keyIsPressed) {
-    moveSpaceship();
+  else if (state === 4) {
+    background(255,255,0);
+    inBox();
   }
-  spaceShip(x,y);
-}
-
-function moveSpaceship(){
-  if (key === "w"|| key === "W"){
-    y - y -10;
+  else if (state === 5) {
+    background(242,0,255);
+    inBox();
+    midBox();
   }
-  else if (key ==="s"|| key ==="S") {
-    y - y +10;
-  }
-  if (key ==="d"|| key ==="D") {
-    x - x +10;
-  }
-  if (key === "a" || key ==="A") {
-    x - x -10;
+  else if (state === 6) {
+    background(242,0,255);
+    inBox();
+    midBox();
+    MidBoxII();
   }
 }
 
-function spaceShip(x,y){
-  noStroke();
-  fill(50,205,50);
-  triangle(x, y, 100, 100,100,100);
+function mouseClicked(){
+  if (state === 1) {
+    state = 2;
+  }
+  else if (state === 2) {
+    state = 3;
+  }
+  else if (state === 3) {
+    state = 4;
+  }
+  else if (state === 4) {
+    state = 5;
+  }
+  else if (state === 5) {
+    state = 6;
+  }
+  else if (state === 6) {
+    state = 1;
+  }
+}
+
+function inBox(){
+  noFill();
+  stroke(255);
+  rotateX(millis() / 700);
+  box(100, 100);
+}
+
+function midBox(){
+  noFill();
+  stroke(255);
+  rotateY(millis() / 700);
+  box(150, 150);
+}
+
+function MidBoxII(){
+  noFill();
+  stroke(255);
+  rotateZ(millis() / 700);
+  box(200, 200);
+}
+
+function outBox(){
+  noFill();
+  stroke(255);
+  rotateX(millis() / 700);
+  box(300, 300);
 }
