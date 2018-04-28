@@ -28,12 +28,12 @@ function draw() {
     inBox();
   }
   else if (state === 5) {
-    background(242,0,255);
+    background(50,5,5);
     inBox();
     midBox();
   }
   else if (state === 6) {
-    background(242,0,255);
+    background(0,50,60);
     inBox();
     midBox();
     MidBoxII();
