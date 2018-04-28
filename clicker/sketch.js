@@ -16,18 +16,17 @@ function draw() {
     boxStart2();
   }
   else if (state === 2) {
-    background(255,0,0);
+    background(128,0,0);
     boxStart3();
     boxStart2();
   }
   else if (state === 3) {
-    background(0,255,0);
+    background(50,205,50);
     boxStart3();
-    boxStart();
   }
   else if (state === 4) {
-    background(0,0,255);
-    boxStart();
+    background(135,206,250);
+    boxStart3();
     boxStart2();
   }
 }
