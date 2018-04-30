@@ -1,6 +1,6 @@
 let state = 1;
 let mainMusic;
-let BGtext = "1";
+let BGtext = "I";
 let BGtext2 = "2";
 let BGTtimer;
 
@@ -11,7 +11,7 @@ function preload(){
 function setup() {
   createCanvas(windowWidth, windowHeight);
   mainMusic.loop();
-  BGTtimer = new Timer(4000);
+  BGTtimer = new Timer(3000);
 }
 
 function draw() {
@@ -42,9 +42,8 @@ function textDisplay(){
   textFont("impact");
   textAlign(CENTER,CENTER);
   fill(0);
-  textSize(100);
-  text(BGtext,width/2,height/2 - 100);
-  text(BGtext2,width/2,height/2 + 100);
+  textSize(500);
+  text(BGtext,width/2,height/2);
 }
 
 function player(){
