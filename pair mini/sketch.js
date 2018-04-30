@@ -1,7 +1,7 @@
 let state = 1;
 let mainMusic;
-let BGtext = "I";
-let BGtext2 = "II";
+let BGtext = "1";
+let BGtext2 = "2";
 let BGTtimer;
 
 function preload(){
@@ -11,7 +11,7 @@ function preload(){
 function setup() {
   createCanvas(windowWidth, windowHeight);
   mainMusic.loop();
-  BGTtimer = new Timer(2000);
+  BGTtimer = new Timer(4000);
 }
 
 function draw() {
