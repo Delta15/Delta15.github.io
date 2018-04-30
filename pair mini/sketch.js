@@ -20,6 +20,7 @@ function draw() {
     noCursor();
     if (BGTtimer.isDone()) {
       BGtext = " ";
+      BGtext2 = " ";
     }
   }
   else if (state === 2) {
@@ -42,7 +43,8 @@ function textDisplay(){
   textAlign(CENTER,CENTER);
   fill(0);
   textSize(100);
-  text(BGtext,width/2,height/2);
+  text(BGtext,width/2,height/2 - 100);
+  text(BGtext2,width/2,height/2 + 100);
 }
 
 function player(){
