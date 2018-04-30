@@ -1,11 +1,26 @@
 let state = 1;
+let mainMusic;
+let BGtext = "I";
+let BGtext2 = "II";
+let BGTtimer;
+
+function preload(){
+  mainMusic = loadSound("music/powerCore.mp3");
+}
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  mainMusic.loop();
+  BGTtimer = new Timer(2000);
 }
 
 function draw() {
   if (state === 1) {
     game();
+    noCursor();
+    if (BGTtimer.isDone()) {
+      BGtext = " ";
+    }
   }
   else if (state === 2) {
     gameII();
@@ -23,13 +38,36 @@ function gameII(){
 }
 
 function textDisplay(){
+  textFont("impact");
   textAlign(CENTER,CENTER);
   fill(0);
   textSize(100);
-  text("SAMPLE",width/2,height/2);
+  text(BGtext,width/2,height/2);
 }
 
 function player(){
-  ellipse(width/2,height/2,200,200);
-  // triangle(width/2,height/2,width/2,height/2);
+  ellipse(mouseX, mouseY,40,40);
+}
+
+class Timer{
+  constructor(waitTime){
+    this.waitTime = waitTime;
+    this.startTime = millis();
+    this.finishTime = this.startTime + this.waitTime;
+    this.timerIsDone = false;
+  }
+  reset(newWaitTime){
+    this.waitTime = newWaitTime;
+    this.startTime = millis();
+    this.finishTime = this.startTime + this.waitTime;
+    this.timerIsDone = false;
+  }
+  isDone(){
+    if (millis() >= this.finishTime) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
 }
