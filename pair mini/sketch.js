@@ -1,6 +1,6 @@
 let state = 1;
 let mainMusic;
-let BGtext = "I";
+let BGtext = "1";
 let BGtext2 = "2";
 let BGTtimer;
 
