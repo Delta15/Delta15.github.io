@@ -3,6 +3,8 @@ let mainMusic;
 let BGtext = "1";
 let BGtext2 = "2";
 let BGTtimer;
+let rectX, rectY, rectWidth, rectHeight;
+let ellipseX, ellipseY, ellipseSize;
 
 function preload(){
   mainMusic = loadSound("music/powerCore.mp3");
@@ -12,6 +14,12 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   mainMusic.loop();
   BGTtimer = new Timer(3000);
+  rectX = random(width);
+  rectY = random(height);
+  rectWidth = random(100, 400);
+  rectHeight = random(100, 400);
+
+  ellipseSize = 50;
 }
 
 function draw() {
@@ -29,25 +37,31 @@ function draw() {
 }
 
 function game(){
-  background(255);
+  background(0);
   textDisplay();
   player();
 }
 
 function gameII(){
-  background(0,0,255);
+  background(255,0,0);
 }
 
 function textDisplay(){
   textFont("impact");
   textAlign(CENTER,CENTER);
-  fill(0);
+  fill(255);
   textSize(500);
   text(BGtext,width/2,height/2);
 }
 
 function player(){
-  ellipse(mouseX, mouseY,40,40);
+  ellipseX = mouseX;
+  ellipseY = mouseY;
+
+  ellipse(ellipseX, ellipseY, ellipseSize, ellipseSize);
+  if (collideRectCircle(rectX, rectY, rectWidth, rectHeight, ellipseX, ellipseY, ellipseSize)) {
+    state = 2;
+  }
 }
 
 class Timer{
