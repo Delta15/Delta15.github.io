@@ -125,7 +125,7 @@ function gameOne(){
   fill(255);
   textSize(100);
   textAlign(CENTER,CENTER);
-  text("GAME1",width/2,height/2);
+  text("1",width/2,height/2);
 }
 
 class Timer{
