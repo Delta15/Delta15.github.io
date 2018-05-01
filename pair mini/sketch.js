@@ -28,27 +28,28 @@ function draw() {
   if (state === 1) {
     game();
     noCursor();
-    for (i = 0; i < numRects; i++) {
-      rects[i].disp();
-      rects[i].collide(cir); //collide against the circle object
-    }
-
-    cir.disp(mouseX, mouseY); //pass the x,y pos in to the circle.
+    // for (i = 0; i < numRects; i++) {
+    //   rects[i].disp();
+    //   rects[i].collide(cir); //collide against the circle object
+    // }
+    //
+    // cir.disp(mouseX, mouseY); //pass the x,y pos in to the circle.
     if (BGTtimer.isDone()) {
       BGtext = " ";
       BGtext2 = " ";
     }
-  } else if (state === 2) {
+  }
+  else if (state === 2) {
     gameII();
   }
 }
 
 function rectObj(x, y, w, h) {
-  this.x = x
-  this.y = y
-  this.w = w
-  this.h = h
-  this.color = color(255,0,0)
+  this.x = x;
+  this.y = y;
+  this.w = w;
+  this.h = h;
+  this.color = color(255, 0, 0);
   this.hit = false;
 
   this.collide = function(obj) {
@@ -56,28 +57,28 @@ function rectObj(x, y, w, h) {
     this.hit = collideRectCircle(this.x, this.y, this.w, this.h, obj.x, obj.y, obj.dia); //collide the cir object into this rectangle object.
 
     if (this.hit) {
-      this.color = color(0) //set this rectangle to be black if it gets hit
+      this.color = color(0); //set this rectangle to be black if it gets hit
       state = 2;
     }
 
-  }
+  };
 
   this.disp = function() {
     noStroke();
     fill(this.color);
-    this.y += 3 //move down!
+    this.y += 3; //move down!
     if (this.y > height) { //loop to the left!
       this.y = -this.h;
     }
     rect(this.x, this.y, this.w, this.h);
 
-  }
+  };
 
 }
 
 function circleObj(dia) {
   this.dia = dia;
-  this.color = color(0)
+  this.color = color(0);
   this.x;
   this.y;
 
@@ -87,13 +88,19 @@ function circleObj(dia) {
     noStroke();
     fill(this.color);
     ellipse(this.x, this.y, this.dia, this.dia);
-  }
+  };
 
 }
 
 function game() {
   background(255);
   textDisplay();
+  for (i = 0; i < numRects; i++) {
+    rects[i].disp();
+    rects[i].collide(cir); //collide against the circle object
+  }
+
+  cir.disp(mouseX, mouseY); //pass the x,y pos in to the circle.
 }
 
 function gameII() {
@@ -124,7 +131,8 @@ class Timer {
   isDone() {
     if (millis() >= this.finishTime) {
       return true;
-    } else {
+    }
+    else {
       return false;
     }
   }

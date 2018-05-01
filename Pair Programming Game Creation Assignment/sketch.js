@@ -25,7 +25,7 @@ function setup() {
   nameIntro = new Timer(3900);
   fadeAnimation = createGraphics(windowWidth, windowHeight);
   for (i = 0; i < numRects; i++) {
-    r = new rectObj(random(width), random(height), random(10, 50), random(10, 50)) // generate a rectObj
+    r = new rectObj(random(width), random(height), random(10, 50), random(10, 50));// generate a rectObj
     rects.push(r); //add it to the array.
   }
   cir = new circleObj(20); // create a new circle object
@@ -47,7 +47,8 @@ function draw() {
       programState = 2;
       classIntro = new Timer(3900);
     }
-  } else if (programState === 2) {
+  }
+  else if (programState === 2) {
     background(0);
     fill(255);
     textAlign(CENTER, CENTER);
@@ -56,9 +57,11 @@ function draw() {
     if (classIntro.isDone()) {
       programState = 3;
     }
-  } else if (programState === 3) {
+  }
+  else if (programState === 3) {
     mainMenu();
-  } else if (programState === 4) {
+  }
+  else if (programState === 4) {
     introBG();
     textDisplay = "3";
     if (introSET.isDone()) {
@@ -67,7 +70,8 @@ function draw() {
       introSTART = new Timer(1300);
       programState = 5;
     }
-  } else if (programState === 5) {
+  }
+  else if (programState === 5) {
     introBG();
     if (introGO.isDone()) {
       textDisplay = "1";
@@ -77,8 +81,13 @@ function draw() {
       gameOn = new Timer(1000);
       Gmusic.play();
     }
-  } else if (gameOn.isDone() && programState === 6) {
+  }
+  else if (gameOn.isDone() && programState === 6) {
+    game1();
     noCursor();
+  }
+
+  function game1() {
     for (i = 0; i < numRects; i++) {
       rects[i].disp();
       rects[i].collide(cir); //collide against the circle object
@@ -89,11 +98,11 @@ function draw() {
 }
 
 function rectObj(x, y, w, h) {
-  this.x = x
-  this.y = y
-  this.w = w
-  this.h = h
-  this.color = color(255, 0, 0)
+  this.x = x;
+  this.y = y;
+  this.w = w;
+  this.h = h;
+  this.color = color(255, 0, 0);
   this.hit = false;
 
   this.collide = function(obj) {
@@ -101,28 +110,28 @@ function rectObj(x, y, w, h) {
     this.hit = collideRectCircle(this.x, this.y, this.w, this.h, obj.x, obj.y, obj.dia); //collide the cir object into this rectangle object.
 
     if (this.hit) {
-      this.color = color(0) //set this rectangle to be black if it gets hit
+      this.color = color(0); //set this rectangle to be black if it gets hit
       // state = 2;
     }
 
-  }
+  };
 
   this.disp = function() {
     noStroke();
     fill(this.color);
-    this.y += 3 //move down!
+    this.y += 3; //move down!;
     if (this.y > height) { //loop to the left!
       this.y = -this.h;
     }
     rect(this.x, this.y, this.w, this.h);
 
-  }
+  };
 
 }
 
 function circleObj(dia) {
   this.dia = dia;
-  this.color = color(255)
+  this.color = color(255);
   this.x;
   this.y;
 
@@ -132,7 +141,7 @@ function circleObj(dia) {
     noStroke();
     fill(this.color);
     ellipse(this.x, this.y, this.dia, this.dia);
-  }
+  };
 
 }
 
@@ -196,7 +205,8 @@ class Timer {
   isDone() {
     if (millis() >= this.finishTime) {
       return true;
-    } else {
+    }
+    else {
       return false;
     }
   }
