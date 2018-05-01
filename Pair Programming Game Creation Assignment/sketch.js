@@ -86,6 +86,10 @@ function draw() {
     game1();
     noCursor();
   }
+  else if (programState === 7) {
+    cursor();
+    background(0);
+  }
 
   function game1() {
     for (i = 0; i < numRects; i++) {
@@ -110,8 +114,8 @@ function rectObj(x, y, w, h) {
     this.hit = collideRectCircle(this.x, this.y, this.w, this.h, obj.x, obj.y, obj.dia); //collide the cir object into this rectangle object.
 
     if (this.hit) {
-      this.color = color(0); //set this rectangle to be black if it gets hit
-      // state = 2;
+      // this.color = color(0); //set this rectangle to be black if it gets hit
+      programState = 7;
     }
 
   };
