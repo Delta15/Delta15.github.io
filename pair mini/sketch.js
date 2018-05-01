@@ -77,7 +77,7 @@ function rectObj(x, y, w, h) {
 
 function circleObj(dia) {
   this.dia = dia;
-  this.color = color(255)
+  this.color = color(0)
   this.x;
   this.y;
 
@@ -92,7 +92,7 @@ function circleObj(dia) {
 }
 
 function game() {
-  background(0);
+  background(255);
   textDisplay();
 }
 
@@ -103,7 +103,7 @@ function gameII() {
 function textDisplay() {
   textFont("impact");
   textAlign(CENTER, CENTER);
-  fill(255);
+  fill(0);
   textSize(500);
   text(BGtext, width / 2, height / 2);
 }
