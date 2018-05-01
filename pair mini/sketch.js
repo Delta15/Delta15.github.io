@@ -26,21 +26,18 @@ function setup() {
 
 function draw() {
   if (state === 1) {
+    gameII();
+    if (mouseIsPressed) {
+      state = 2;
+    }
+  }
+  else if (state === 2) {
     game();
     noCursor();
-    // for (i = 0; i < numRects; i++) {
-    //   rects[i].disp();
-    //   rects[i].collide(cir); //collide against the circle object
-    // }
-    //
-    // cir.disp(mouseX, mouseY); //pass the x,y pos in to the circle.
     if (BGTtimer.isDone()) {
       BGtext = " ";
       BGtext2 = " ";
     }
-  }
-  else if (state === 2) {
-    gameII();
   }
 }
 
@@ -57,8 +54,8 @@ function rectObj(x, y, w, h) {
     this.hit = collideRectCircle(this.x, this.y, this.w, this.h, obj.x, obj.y, obj.dia); //collide the cir object into this rectangle object.
 
     if (this.hit) {
-      this.color = color(0); //set this rectangle to be black if it gets hit
-      state = 2;
+      // this.color = color(0); //set this rectangle to be black if it gets hit
+      state = 1;
     }
 
   };
