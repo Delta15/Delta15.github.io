@@ -3,10 +3,11 @@ let mainMusic;
 let BGtext = "1";
 let BGtext2 = "2";
 let BGTtimer;
-let rectX, rectY, rectWidth, rectHeight;
-let ellipseX, ellipseY, ellipseSize;
+let rects = [];
+let numRects = 50;
+let cir;
 
-function preload(){
+function preload() {
   mainMusic = loadSound("music/powerCore.mp3");
 }
 
@@ -14,75 +15,116 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   mainMusic.loop();
   BGTtimer = new Timer(3000);
-  rectX = random(width);
-  rectY = random(height);
-  rectWidth = random(100, 400);
-  rectHeight = random(100, 400);
+  for (i = 0; i < numRects; i++) {
+    r = new rectObj(random(width), random(height), random(10, 50), random(10, 50)) // generate a rectObj
+    rects.push(r); //add it to the array.
+  }
 
-  ellipseSize = 50;
+  cir = new circleObj(20); // create a new circle object
+  console.log(rects);
 }
 
 function draw() {
   if (state === 1) {
     game();
     noCursor();
+    for (i = 0; i < numRects; i++) {
+      rects[i].disp();
+      rects[i].collide(cir); //collide against the circle object
+    }
+
+    cir.disp(mouseX, mouseY); //pass the x,y pos in to the circle.
     if (BGTtimer.isDone()) {
       BGtext = " ";
       BGtext2 = " ";
     }
-  }
-  else if (state === 2) {
+  } else if (state === 2) {
     gameII();
   }
 }
 
-function game(){
+function rectObj(x, y, w, h) {
+  this.x = x
+  this.y = y
+  this.w = w
+  this.h = h
+  this.color = color(255,0,0)
+  this.hit = false;
+
+  this.collide = function(obj) {
+
+    this.hit = collideRectCircle(this.x, this.y, this.w, this.h, obj.x, obj.y, obj.dia); //collide the cir object into this rectangle object.
+
+    if (this.hit) {
+      this.color = color(0) //set this rectangle to be black if it gets hit
+      state = 2;
+    }
+
+  }
+
+  this.disp = function() {
+    noStroke();
+    fill(this.color);
+    this.y += 3 //move down!
+    if (this.y > height) { //loop to the left!
+      this.y = -this.h;
+    }
+    rect(this.x, this.y, this.w, this.h);
+
+  }
+
+}
+
+function circleObj(dia) {
+  this.dia = dia;
+  this.color = color(255)
+  this.x;
+  this.y;
+
+  this.disp = function(x, y) {
+    this.x = x;
+    this.y = y;
+    noStroke();
+    fill(this.color);
+    ellipse(this.x, this.y, this.dia, this.dia);
+  }
+
+}
+
+function game() {
   background(0);
   textDisplay();
-  player();
 }
 
-function gameII(){
-  background(255,0,0);
+function gameII() {
+  background(255, 0, 0);
 }
 
-function textDisplay(){
+function textDisplay() {
   textFont("impact");
-  textAlign(CENTER,CENTER);
+  textAlign(CENTER, CENTER);
   fill(255);
   textSize(500);
-  text(BGtext,width/2,height/2);
+  text(BGtext, width / 2, height / 2);
 }
 
-function player(){
-  ellipseX = mouseX;
-  ellipseY = mouseY;
-
-  ellipse(ellipseX, ellipseY, ellipseSize, ellipseSize);
-  
-  if (collideRectCircle(rectX, rectY, rectWidth, rectHeight, ellipseX, ellipseY, ellipseSize)) {
-    state = 2;
-  }
-}
-
-class Timer{
-  constructor(waitTime){
+class Timer {
+  constructor(waitTime) {
     this.waitTime = waitTime;
     this.startTime = millis();
     this.finishTime = this.startTime + this.waitTime;
     this.timerIsDone = false;
   }
-  reset(newWaitTime){
+  reset(newWaitTime) {
     this.waitTime = newWaitTime;
     this.startTime = millis();
     this.finishTime = this.startTime + this.waitTime;
     this.timerIsDone = false;
   }
-  isDone(){
+  isDone() {
     if (millis() >= this.finishTime) {
       return true;
-    }
-    else {
+    } else {
       return false;
     }
   }
