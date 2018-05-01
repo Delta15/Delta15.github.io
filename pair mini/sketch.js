@@ -16,7 +16,7 @@ function setup() {
   mainMusic.loop();
   BGTtimer = new Timer(3000);
   for (i = 0; i < numRects; i++) {
-    r = new rectObj(random(width), random(height), random(10, 50), random(10, 50)) // generate a rectObj
+    r = new rectObj(random(width), random(height), random(10, 50), random(10, 50)); // generate a rectObj
     rects.push(r); //add it to the array.
   }
 
