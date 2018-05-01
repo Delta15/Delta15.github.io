@@ -59,6 +59,7 @@ function player(){
   ellipseY = mouseY;
 
   ellipse(ellipseX, ellipseY, ellipseSize, ellipseSize);
+  
   if (collideRectCircle(rectX, rectY, rectWidth, rectHeight, ellipseX, ellipseY, ellipseSize)) {
     state = 2;
   }
