@@ -89,6 +89,7 @@ function draw() {
   }
 
   function game1() {
+    background(0);
     for (i = 0; i < numRects; i++) {
       rects[i].disp();
       rects[i].collide(cir); //collide against the circle object
