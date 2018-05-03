@@ -6,6 +6,7 @@
 // May 3rd, 2018
 //-------------------------------------
 
+// General global variables.
 let nameIntro, classIntro;
 let mainMusic;
 let gameOn, Gmusic, startT, breathingSpace;
@@ -96,6 +97,7 @@ function setup() {
 }
 function draw() {
   if (programState === 1) {
+    // Programmer names displayed.
     background(0);
     fill(255);
     textAlign(CENTER, CENTER);
@@ -113,6 +115,7 @@ function draw() {
     }
   }
   else if (programState === 2) {
+    // Class is displayed.
     background(0);
     fill(255);
     textAlign(CENTER, CENTER);
@@ -122,13 +125,16 @@ function draw() {
       programState = 3;
     }
   }
+  // Main menu displayed.
   else if (programState === 3) {
     mainMenu();
   }
+  // Instructions displayed.
   else if (programState === 4) {
     instract();
   }
   else if (programState === 5) {
+    // Beginning of countdown.
     introBG();
     textDisplay = "3";
     if (introSET.isDone()) {
@@ -139,41 +145,48 @@ function draw() {
     }
   }
   else if (programState === 6) {
+    // Last part of countdown.
     introBG();
     if (introGO.isDone()) {
       textDisplay = "1";
     }
+    // Game begins once this timer is done.
     if (introSTART.isDone()) {
       programState = 7;
       gameOn = new Timer(1000);
+      // Timer to allow the player to prepare for game one.
       breathingSpace = new Timer(2000);
       Gmusic.play();
     }
   }
+  // If program state is 7, game 1 is set up.
   else if (gameOn.isDone() && programState === 7) {
     background(0);
     cir.disp(mouseX, mouseY); //pass the x,y pos in to the circle.
+    // Give player time to prepare for game one.
     if (breathingSpace.isDone()) {
       game1();
       noCursor();
     }
-    // Tracking the score - William.
+    // Tracking the score, time of game one, and overall time left - William.
     scoreTracker();
     overallGameTimer();
     gameOneTimer();
   }
+  // If state is 8, game 2 is set up.
   else if (programState === 8) {
     noStroke();
     if (gameState === 1) {
     // Stickman game function, containing all of the components of it - William.
       stickManGame();
-      // Tracking the score - William.
+      // Tracking the score, time of game two, and overall time left. - William.
       scoreTracker();
       gameTwoTimer();
       overallGameTimer();
     }
     else if (gameState === 2) {
       programState = 7;
+      // Once again, timer to allow the player to prepare for game one.
       breathingSpace = new Timer(1000);
       // Obstacles are pushed to the end of the screen opposite of the stickman
       // before the game is rerun - William.
@@ -182,6 +195,7 @@ function draw() {
       gameState = 1;
     }
   }
+  // If state is 9, game over - William.
   else if (programState === 9) {
     gameOverConditionals();
   }
@@ -195,21 +209,17 @@ function setHighScore() {
 function getHighScore() {
   highScore = localStorage.getItem("highscore");
 }
-// Function to remove local storage value, if you can't beat the highscore :) - William.
-function keyTyped() {
-  if (key === "c") {
-    localStorage.removeItem("highscore");
-  }
-}
 function scoreTracker() {
   // Display for score and highscore within the game - William.
   push();
+  // Based on the game, the colour of the display changes.
   if (programState === 7) {
     fill(0);
   }
   else if (programState === 8) {
     fill(255);
   }
+  // Making score dsplay nicer.
   rect(0, 0, windowWidth, 120);
   textSize(30);
   if (programState === 7) {
@@ -226,17 +236,21 @@ function scoreTracker() {
   pop();
   push();
   textSize(90);
+  // MINI logo in the middle.
   text("MINI", windowWidth/2, 60);
   pop();
 }
+//McRaven/William
 function mainMenu() {
   background(255);
   push();
+  // Main menu fades in.
   fadeAnimation.noStroke();
   fadeAnimation.rectMode(CENTER, CENTER);
   fadeAnimation.fill(0, 8);
   fadeAnimation.rect(width / 2, height / 2, windowWidth, windowHeight / 1.1);
   image(fadeAnimation, 0, 0, windowWidth, windowHeight / 1.1);
+  // Main menu text.
   textAlign(CENTER, CENTER);
   fill(255);
   textSize(200);
@@ -251,12 +265,14 @@ function mainMenu() {
   textFont("impact");
   text("Press any key to continue", width / 2, height / 2 + 200);
   pop();
+  // Music is stopped and changed.
   if (keyIsPressed) {
     programState = 4;
     mainMusic.stop();
   }
 }
-
+//McRaven
+//Display instract
 function instract(){
   background(255);
   textAlign(CENTER,CENTER);
@@ -283,7 +299,8 @@ function instract(){
     introSound.play();
   }
 }
-
+//McRaven
+//display a white background for the intro
 function introBG() {
   background(255);
   noStroke();
@@ -300,6 +317,8 @@ function introBG() {
   text(textDisplay, width / 2, height / 2);
 }
 // ###################################################################################################
+//McRaven
+//display game 1
 function game1() {
   background(0);
   for (let i = 0; i < numRects; i++) {
@@ -311,6 +330,7 @@ function game1() {
   scoreTracker();
 }
 
+//McRaven
 function rectObj(x, y, w, h) {
   this.x = x;
   this.y = y;
@@ -340,7 +360,7 @@ function rectObj(x, y, w, h) {
 
   };
 }
-
+//McRaven
 function circleObj(dia) {
   this.dia = dia;
   this.color = color(255);
@@ -365,15 +385,18 @@ function gameOneTimer() {
   textAlign(CENTER);
   text("Time left in Game One: " + game1Timer + " s", windowWidth/2-450, 80);
   pop();
+  // Game one timer decreases by seconds when appropriate.
   if (programState === 7) {
     if (frameCount % 60 === 0) {
       game1Timer --;
       score ++;
+      // Highscore set to score if the score is bigger.
       if (score > highScore) {
         setHighScore();
         highScore = score;
       }
     }
+    // Game timer is reset once a certain game is done.
     if (game1Timer === 0) {
       programState = 8;
       game1Timer = 30;
@@ -424,10 +447,12 @@ function gameTwoTimer() {
   textAlign(CENTER);
   text("Time left in Game Two: " + game2Timer + " s", windowWidth/2-450, 80);
   pop();
+  // Game two timer decreases by seconds when appropriate.
   if (programState === 8) {
     if (frameCount % 60 === 0) {
       game2Timer --;
     }
+    // Game timer is reset once a certain game is done.
     if (game2Timer === 0) {
       programState = 7;
       game2Timer = 30;
@@ -436,8 +461,10 @@ function gameTwoTimer() {
   }
 }
 // Specific class for the stick man and its behaviour - William.
+// Gravity is used for the stickman's jump and return to the surface.
 class StickmanCharacter {
   constructor(objectX) {
+    // Variables.
     this.width = width;
     this.height = height;
     this.objectX = objectX;
@@ -453,15 +480,18 @@ class StickmanCharacter {
   updateDisplay() {
     noStroke();
     imageMode(CENTER);
+    // If stickman is off surface, image is changed to jumping.
     if (this.objectY < 654) {
       image(stickmanJumpState, this.objectX+30, this.objectY, 480, 380);
     }
+    // If stickman is on surface, image changed to standing.
     else if (!this.objectY < 654 && this.stickmanStanding === true) {
       image(stickmanStandState, this.objectX, this.objectY-25, 70, 150);
     }
+    // If right arrow is pressed, stickman image is change to running.
     if (keyIsDown(39) && !keyIsDown(38) && this.gravitySpeed === 0) { //39 - right arrow
       this.stickmanStanding = false;
-
+      // Running frames are looped to create a real time animation effect.
       if (this.runningState === 1) {
         image(stickmanRunState1, this.objectX-20, this.objectY-10, 120, 125);
         if (millis() > this.lastTimeFrameChanged + this.frameDuration1) {
@@ -496,6 +526,7 @@ class StickmanCharacter {
     }
   }
   newPositionAndSurfaceDetection() {
+    // Gravity is implemented to the stickman.
     this.gravitySpeed += this.gravity;
     this.objectY += this.velocityY + this.gravitySpeed;
     if (this.objectY > 654) {
@@ -504,13 +535,16 @@ class StickmanCharacter {
     }
   }
   jump(negativeNumericalValue) {
+    // If up arrow pressed, stickman accelerates up at a lower rate.
     if (keyIsDown(38) && this.objectY > 639) { //up arrow
       stickman.gravity = negativeNumericalValue;
     }
+    // If up arrow pressed, stickman accelerates up at a higher rate.
     else if (keyIsDown(88) && this.objectY > 639) { //key x
       stickman.gravity = negativeNumericalValue-2;
     }
     else {
+      // Rate at which stickman comes back down to surface.
       stickman.gravity = 0.8;
     }
   }
@@ -518,6 +552,7 @@ class StickmanCharacter {
 // Specific class for the collision detector (hitbox)
 // that follows the movements of the stickman. The class also holds the
 // obstacles. - William.
+// Collision detector has the same behaviour as stickman.
 class CollisionDetection {
   constructor(objectX) {
     this.width = width;
@@ -554,6 +589,7 @@ class CollisionDetection {
   obstacles() {
     //Obstacle 1.
     if (obstacleState === 1) {
+      // Variable for colliding with obstacle.
       this.obstacleOccurance =
       collideRectCircle(this.objectX-36, this.objectY-92, 60, 150, obstacleX, 590, 240);
       fill("grey");
@@ -561,6 +597,7 @@ class CollisionDetection {
     }
     //Obstacle 2.
     else if (obstacleState === 2) {
+      // Variable for colliding with obstacle.
       this.obstacleOccurance =
       collideRectCircle(this.objectX-36, this.objectY-92, 60, 150, obstacleX, 580, 230, 50);
       fill("grey");
@@ -579,8 +616,10 @@ class CollisionDetection {
     }
     //Obstacle 3.
     else if (obstacleState === 3) {
+      // Variable for colliding with obstacle.
       this.obstacleOccurance =
       collideRectRect(this.objectX-36, this.objectY-92, 60, 150, obstacleX-150, 655, 300, 100);
+      // Variable for colliding with obstacle.
       this.obstacleOccurance3 =
       collideRectRect(this.objectX-36, this.objectY-92, 60, 150, obstacleX-200, 290, 400, 100);
       fill(0);
@@ -594,6 +633,7 @@ class CollisionDetection {
     }
     // Obstacle 4.
     else if (obstacleState === 4) {
+      // Variable for colliding with obstacle.
       this.obstacleOccurance =
       collideRectRect(this.objectX-36, this.objectY-92, 60, 150, obstacleX, 500, 500, 20);
       push();
@@ -611,20 +651,24 @@ class CollisionDetection {
       ellipse(obstacleX, 400, 40);
       pop();
     }
+    // Highscore is set to go up if score is higher.
     if (keyIsDown(39)) {
       obstacleX -= obstacleSpeed;
       if (score > highScore) {
         setHighScore();
         highScore = score;
       }
+      // Score goes up with the stickman's running.
       if (frameCount % 5 === 0) {
         score ++;
       }
     }
+    // Obstacle goes to the opposite side everytime is reaches the stickman's side.
     if (obstacleX <= -120) {
       obstacleX = windowWidth;
       obstacleState = obstacleStateArray[Math.floor(Math.random() * obstacleStateArray.length)];
     }
+    // If hitbox hits obstacle, game changes to first game and timer reset.
     if (this.obstacleOccurance || this.obstacleOccurance3) {
       gameState = 2;
       game2Timer = 30;
@@ -633,8 +677,10 @@ class CollisionDetection {
 }
 // ###################################################################################################
 
+// Timer for the whole game. This timer is synced with the background music.
 function overallGameTimer() {
   push();
+  // Display of overall timer.
   textSize(30);
   if (programState === 7) {
     fill(255);
@@ -647,9 +693,11 @@ function overallGameTimer() {
   textAlign(CENTER);
   text("Overall Time: " + overallTimer + " s", windowWidth/2-480, 30);
   pop();
+  // Overall timer goes down by seconds.
   if (frameCount % 60 === 0) {
     overallTimer --;
   }
+  // If timer is done, the whole program is down and shows the score. Overall timer reset.
   if (overallTimer === 0) {
     programState = 9;
     overallTimer = 123;
@@ -670,13 +718,14 @@ function gameOverConditionals() {
   text("Final Score: " + score + " points", windowWidth/2, windowHeight/2+70);
   text("High Score: " + highScore + " points", windowWidth/2, windowHeight/2+140);
   pop();
-  // Change...
+  // If key 'r' is pressed, the game goes back to the instructions and the user can start again.
   if(keyIsDown(82)) { // key r
     programState = 3;
     score = 0;
   }
 }
 // Universal class for the overall program.
+// Timer for timing events at the beginning and during the program.
 class Timer {
   constructor(waitTime) {
     this.waitTime = waitTime;
