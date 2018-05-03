@@ -1,4 +1,5 @@
 let state = 1;
+let nextState;
 
 function setup() {
   createCanvas(windowWidth, windowHeight, WEBGL);
@@ -87,4 +88,27 @@ function outBox(){
   stroke(255);
   rotateX(millis() / 700);
   box(300, 300);
+}
+
+class Timer {
+  constructor(waitTime) {
+    this.waitTime = waitTime;
+    this.startTime = millis();
+    this.finishTime = this.startTime + this.waitTime;
+    this.timerIsDone = false;
+  }
+  reset(newWaitTime) {
+    this.waitTime = newWaitTime;
+    this.startTime = millis();
+    this.finishTime = this.startTime + this.waitTime;
+    this.timerIsDone = false;
+  }
+  isDone() {
+    if (millis() >= this.finishTime) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
 }
