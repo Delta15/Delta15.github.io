@@ -80,14 +80,14 @@ function MidBoxII(){
   noFill();
   stroke(255);
   rotateZ(millis() / 700);
-  box(200, 200);
+  plane(200, 200);
 }
 
 function outBox(){
   noFill();
   stroke(255);
   rotateX(millis() / 700);
-  box(300, 300);
+  plane(300, 300);
 }
 
 class Timer {
