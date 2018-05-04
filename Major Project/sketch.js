@@ -11,21 +11,21 @@ function draw() {
     mainManu();
     if (timerONE.isDone()) {
       state = 2;
-      timerTWO = new Timer(800);
+      timerTWO = new Timer(700);
     }
   }
   else if (state === 2) {
     intro();
     if (timerTWO.isDone()) {
       state = 3;
-      timerTHREE = new Timer(800);
+      timerTHREE = new Timer(700);
     }
   }
   else if (state === 3) {
     mainManu();
     if (timerTHREE.isDone()) {
       state = 1;
-      timerONE = new Timer(800);
+      timerONE = new Timer(700);
     }
   }
 }
