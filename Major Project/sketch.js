@@ -1,34 +1,69 @@
-// p5js template project - replace with project title
-// Dan Schellenberg - replace with your name
-// Feb 2, 2018 - replace with the date
+let state = 1;
+let timerONE, timerTWO, timerTHREE;
 
-// global variables
-let gear;
-
-// the preload function guarentees that the code inside the function is
-// executed before the rest of the program runs -- helpful for things
-// like loading images (since JS is asynchronous)
-function preload() {
-  gear = loadImage("images/gear.png");
-}
-
-// the setup function will only run once (before the draw loop begins)
-// this is where you want to set up the environment (size of canvas, etc)
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  timerONE = new Timer(900);
 }
 
 function draw() {
-  background(255);
+  if (state === 1) {
+    mainManu();
+    if (timerONE.isDone()) {
+      state = 2;
+      timerTWO = new Timer(800);
+    }
+  }
+  else if (state === 2) {
+    intro();
+    if (timerTWO.isDone()) {
+      state = 3;
+      timerTHREE = new Timer(800);
+    }
+  }
+  else if (state === 3) {
+    mainManu();
+    if (timerTHREE.isDone()) {
+      state = 1;
+      timerONE = new Timer(800);
+    }
+  }
+}
 
-  image(gear, 0, 0);
+function mainManu(){
+  background(0);
+  textAlign(CENTER,CENTER);
+  fill(255);
+  textSize(100);
+  text("SAMPLE",width/2,height/2);
+}
+function intro(){
+  background(255,0,0);
+  textAlign(CENTER,CENTER);
+  fill(0);
+  textSize(100);
+  text("SAMPLE",width/2,height/2);
+}
 
-  stroke(0);
-  line(0, 0, 200, 200);
-
-  fill(0, 255, 0, 100);
-  noStroke();
-
-  rect(mouseX, mouseY, 100, 300);
-  ellipse(400, 150, 300, 200);
+class Timer {
+  constructor(waitTime) {
+    this.waitTime = waitTime;
+    this.startTime = millis();
+    this.finishTime = this.startTime + this.waitTime;
+    this.timerIsDone = false;
+  }
+  reset(newWaitTime) {
+    this.waitTime = newWaitTime;
+    this.startTime = millis();
+    this.finishTime = this.startTime + this.waitTime;
+    this.timerIsDone = false;
+  }
+  isDone() {
+    if (millis() >= this.finishTime) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
 }
