@@ -94,7 +94,10 @@ function display(){
     text("Z, X, C, V, B, N, M, ,",width/2,height/2 + 120);
     text("P to play & O to practice & Esc to stop",width/2,height/2 + 160);
     textSize(50);
-    text("Press ENTER to continue", width/2, height/2 + 210);
+    text("Press any key to continue", width/2, height/2 + 210);
+    if (keyIsPressed) {
+      lever = 2;
+    }
   }
   else if (lever === 2) {
     drawGrid();
@@ -823,8 +826,5 @@ function keyPressed(){
     textPOP = " ";
     instrumental.stop();
     punk.stop();
-  }
-  else if (keyCode === ENTER) {
-    lever = 2;
   }
 }
